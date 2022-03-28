@@ -8,12 +8,12 @@
         src="/assets/aninja-logo.png" /></span
     >ANINJA</a
   >
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" (click)="collapsed = !collapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="navbar-nav mr-auto ml-auto w-50">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+    <form class="navbar-nav mr-auto ml-auto w-50 flex-row">
       <input
         class="form-control mr-sm-2 w-100"
         style="background-color: #444; border: #555; color: #ddd"
@@ -36,7 +36,7 @@
       </button>
     </form>
     <ul class="navbar-nav ml-0">
-      <li class="nav-item">
+      <li class="nav-item text-center">
         <a class="nav-link" style="color: #ddd" href="#"
           ><span class="mr-2"
             ><svg
@@ -57,7 +57,7 @@
           >Sign In</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item text-center">
         <a class="nav-link" style="color: #ddd" href="#"
           ><span class="mr-2"
             ><svg
