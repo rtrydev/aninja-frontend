@@ -1,10 +1,16 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Anime } from './animes/anime-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnimeService {
+
+  animeSelected = new EventEmitter<Anime>();
+
+  getAnimes() {
+    return this.animes.slice();
+  }
 
   private animes: Anime[] = [
     new Anime(1, 'Higurashi no naku koro ni', 'https://cdn.myanimelist.net/images/anime/12/19634.jpg'),

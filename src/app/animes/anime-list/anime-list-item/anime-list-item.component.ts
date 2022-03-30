@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AnimeService } from 'src/app/anime.service';
+import { Anime } from '../../anime-model';
 
 @Component({
   selector: 'app-anime-list-item',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimeListItemComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  anime: Anime = new Anime(0, '', '');
+
+  constructor(private animeService: AnimeService) { }
 
   ngOnInit(): void {
+  }
+
+  onAnimeSelected(anime: Anime) {
+    this.animeService.animeSelected.emit(this.anime);
   }
 
 }

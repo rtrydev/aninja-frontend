@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimeListComponent } from './anime-list/anime-list.component';
 
 @Component({
   selector: 'app-animes',
