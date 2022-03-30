@@ -8,6 +8,7 @@ import { AnimeListComponent } from './animes/anime-list/anime-list.component';
 import { AnimeListItemComponent } from './animes/anime-list/anime-list-item/anime-list-item.component';
 import { AnimeTopListComponent } from './animes/anime-top-list/anime-top-list.component';
 import { AnimeTopListItemComponent } from './animes/anime-top-list/anime-top-list-item/anime-top-list-item.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AnimeTopListItemComponent } from './animes/anime-top-list/anime-top-lis
     AnimeListComponent,
     AnimeListItemComponent,
     AnimeTopListComponent,
-    AnimeTopListItemComponent
+    AnimeTopListItemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule
