@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { AnimeListComponent } from './anime-list/anime-list.component';
 
 @Component({
@@ -8,9 +8,17 @@ import { AnimeListComponent } from './anime-list/anime-list.component';
 })
 export class AnimesComponent implements OnInit {
 
+  public innerWidth: any;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event:any) {
+    this.innerWidth = window.innerWidth;
+  }
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+      this.innerWidth = window.innerWidth;
   }
 
 }
