@@ -11,6 +11,7 @@ import { AnimeTopListItemComponent } from './animes/anime-top-list/anime-top-lis
 import { FooterComponent } from './footer/footer.component';
 import { AnimeDetailsComponent } from './anime-details/anime-details.component';
 import { RouterModule, Routes } from '@angular/router';
+import { RatingComponent } from './anime-details/rating/rating.component';
 
 const appRoutes: Routes = [
   { path: '', component: AnimesComponent},
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     AnimeTopListComponent,
     AnimeTopListItemComponent,
     FooterComponent,
-    AnimeDetailsComponent
+    AnimeDetailsComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
