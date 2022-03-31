@@ -16,6 +16,13 @@ export class AnimeDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.anime = this.animeService.getAnime(this.route.snapshot.params['id']);
+
+    this.route.params
+      .subscribe(
+        params => {
+          this.anime = this.animeService.getAnime(params['id']);
+        }
+      );
   }
 
 }
