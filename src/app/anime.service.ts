@@ -14,7 +14,7 @@ export class AnimeService {
   }
 
   getAnime(id: number){
-    return this.animeDetails[id];
+    return this.animeDetails.find(x => x.id == id);
   }
 
   private animes: Anime[] = [

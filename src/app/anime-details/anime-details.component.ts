@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AnimeService } from '../anime.service';
+import { AnimeDetails } from '../animes/anime-details-model';
 
 @Component({
   selector: 'app-anime-details',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimeDetailsComponent implements OnInit {
 
-  constructor() { }
+  anime: AnimeDetails | undefined = undefined;
+
+  constructor(private route: ActivatedRoute, private animeService : AnimeService) { }
 
   ngOnInit(): void {
+    this.anime = this.animeService.getAnime(this.route.snapshot.params['id']);
   }
 
 }
