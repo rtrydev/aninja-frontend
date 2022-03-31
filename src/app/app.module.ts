@@ -9,7 +9,13 @@ import { AnimeListItemComponent } from './animes/anime-list/anime-list-item/anim
 import { AnimeTopListComponent } from './animes/anime-top-list/anime-top-list.component';
 import { AnimeTopListItemComponent } from './animes/anime-top-list/anime-top-list-item/anime-top-list-item.component';
 import { FooterComponent } from './footer/footer.component';
+import { AnimeDetailsComponent } from './anime-details/anime-details.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  { path: '', component: AnimesComponent},
+  { path: 'anime/:id', component: AnimeDetailsComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,13 +25,14 @@ import { FooterComponent } from './footer/footer.component';
     AnimeListItemComponent,
     AnimeTopListComponent,
     AnimeTopListItemComponent,
-    FooterComponent
+    FooterComponent,
+    AnimeDetailsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export const baseUrl='http://localhost:4200';

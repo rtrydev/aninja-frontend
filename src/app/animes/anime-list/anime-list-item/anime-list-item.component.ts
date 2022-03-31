@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { AnimeService } from 'src/app/anime.service';
 import { Anime } from '../../anime-model';
-import { baseUrl } from 'src/app/app.module';
 
 @Component({
   selector: 'app-anime-list-item',
@@ -14,7 +13,6 @@ export class AnimeListItemComponent implements OnInit {
   anime: Anime = new Anime(0, '', '');
 
   public innerWidth: any;
-  public baseUrl = baseUrl;
 
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {
