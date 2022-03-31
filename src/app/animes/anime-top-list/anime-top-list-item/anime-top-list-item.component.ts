@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, HostListener } from '@angular/core';
 import { AnimeService } from 'src/app/anime.service';
 import { Anime } from '../../anime-model';
+import { AnimeRating } from '../../anime-rating-model';
 
 @Component({
   selector: 'app-anime-top-list-item',
@@ -10,7 +11,7 @@ import { Anime } from '../../anime-model';
 export class AnimeTopListItemComponent implements OnInit {
 
   @Input()
-  anime: Anime = new Anime(0, '', '');
+  anime: AnimeRating = new AnimeRating(0, '', '', 0.0);
 
   public innerWidth: any;
 
