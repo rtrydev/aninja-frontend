@@ -28,3 +28,4 @@ import { FooterComponent } from './footer/footer.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export const baseUrl='http://localhost:4200';
