@@ -1,17 +1,16 @@
 <div class="card shadow border-light m-2" style="background-color: #404040;">
-    <div class="d-flex flex-wrap justify-content-center">
-        <div class="text-center p-3">
+    <div class="align-content-stretch row">
+        <div class="text-center pt-3 pl-3 col-4 ">
             <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="white" class="bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                 <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-              </svg>
-              <p class="m-2">{{comment?.submitter?.name}}</p>
-    
+            </svg>
+            <p class="m-2">{{comment?.submitter?.name}}</p>
         </div>
-        <div class="p-1 m-2 w-75">
+        <div class="col-7 py-3">
             <p>Note: {{comment?.note}}</p>
-            <p class="text-white" name="comment" id="comment-text" cols="100" rows="10" style="background-color: #404040;">{{comment?.comment}}</p>
-        
+            <p [ngStyle]="showMore ? {'white-space': 'normal'} : {'white-space': 'nowrap'}" class="text-white" style="overflow: hidden; text-overflow: ellipsis; background-color: #404040;">{{comment?.comment}}</p>
+            <a (click)="toggleShowMore()" style="cursor: pointer; color: #aaaaff;" class="text-right">Show {{showMore ? 'Less' : 'More'}}</a>
         </div>
     </div>
 </div>
