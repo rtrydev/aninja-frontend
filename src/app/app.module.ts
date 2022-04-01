@@ -14,6 +14,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { RatingComponent } from './anime-details/rating/rating.component';
 import { CharactersComponent } from './characters/characters.component';
 import { CharacterItemComponent } from './characters/character-item/character-item.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentItemComponent } from './comments/comment-item/comment-item.component';
 
 const appRoutes: Routes = [
   { path: '', component: AnimesComponent},
@@ -32,7 +34,9 @@ const appRoutes: Routes = [
     AnimeDetailsComponent,
     RatingComponent,
     CharactersComponent,
-    CharacterItemComponent
+    CharacterItemComponent,
+    CommentsComponent,
+    CommentItemComponent
   ],
   imports: [
     BrowserModule,
