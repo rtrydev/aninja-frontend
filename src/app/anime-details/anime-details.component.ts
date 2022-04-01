@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AnimeService } from '../anime.service';
 import { AnimeDetails } from '../animes/anime-details-model';
+import { Demographic } from '../animes/anime-details-model';
+import { Status } from '../animes/anime-details-model';
 
 @Component({
   selector: 'app-anime-details',
@@ -11,6 +13,8 @@ import { AnimeDetails } from '../animes/anime-details-model';
 export class AnimeDetailsComponent implements OnInit {
 
   anime: AnimeDetails | undefined = undefined;
+  Demographic: any = Demographic;
+  Status: any = Status;
 
   constructor(private route: ActivatedRoute, private animeService : AnimeService) { }
 

@@ -4,12 +4,32 @@ export enum Status {
     FinishedAiring
 }
 
+export namespace Status {
+    export function toString(stat: Status): string {
+        return Status[stat].replace(/([A-Z])/g, ' $1').trim();
+    }
+
+    export function fromString(stat: string): Status {
+        return (Status as any)[stat];
+    }
+}
+
 export enum Demographic {
     Kids,
     Shounen,
     Shoujo,
     Seinen,
     Josei
+}
+
+export namespace Demographic {
+    export function toString(dem: Demographic): string {
+        return Demographic[dem];
+    }
+
+    export function fromString(dem: string): Demographic {
+        return (Demographic as any)[dem];
+    }
 }
 
 export class AnimeDetails {
