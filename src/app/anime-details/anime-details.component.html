@@ -11,8 +11,8 @@
   </div>
 </div>
 <div class="d-flex flex-wrap justify-content-center pb-3" style="background-color: #444;">
-  <div class="col-md-4 col-lg-3 col-xl-2 py-2 px-3 pt-3 card border-light" style="background-color: #555; width: 80%;">
-    <div class="text-white" style="font-size: large;">
+  <div class="col-sm-4 col-md-4 col-lg-3 col-xl-2 pb-2 px-3 pt-3 mt-3 mx-3 card border-light" style="background-color: #404040;">
+    <div class="text-white px-2" style="font-size: large;">
       <p class="text-center">Informations</p>
       <p>Start Date: {{anime?.startDate.toLocaleDateString()}}</p>
       <p>End Date: {{anime?.endDate.toLocaleDateString()}}</p>
@@ -21,7 +21,10 @@
       <p>Demographics: {{Demographic.toString(anime?.demographic)}}</p>
     </div>
   </div>
-  <div class="col-md-6 col-lg-5 col-xl-4">
-    <p>desc</p>
+  <div class="col-md-6 col-lg-5 col-xl-4 text-white mt-3" >
+    <div class="col-lg-10 col-md-8 ml-auto mr-auto card border-light pb-2 px-3 pt-3" style="background-color: #404040; width: 100%;">
+      <p class="text-center">Description</p>
+      <p>{{anime?.description}}</p>
+    </div>
   </div>
 </div>
