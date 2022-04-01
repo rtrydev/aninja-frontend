@@ -10,9 +10,15 @@ export class CommentItemComponent implements OnInit {
 
   @Input()
   comment: Rating | undefined = undefined;
+  showMore: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleShowMore() {
+    this.showMore = !this.showMore;
   }
 
 }
