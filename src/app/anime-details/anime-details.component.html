@@ -1,0 +1,41 @@
+<div class="d-flex flex-wrap justify-content-center" style="background-color: #444">
+  <div class="col-md-5 col-lg-4 col-xl-3 text-center p-3 mt-3">
+    <img src="{{ anime?.imgUrl }}" width="75%"/>
+    <div class="text-white" style="font-size: large;">
+      <p>{{anime?.translatedTitle}}</p>
+      <p>{{anime?.originalTitle}}</p>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-6 col-xl-4">
+    <app-rating [anime]="anime"></app-rating>
+  </div>
+</div>
+<div class="d-flex flex-wrap justify-content-center pb-3" style="background-color: #444;">
+  <div class="col-sm-12 col-md-5 col-lg-4 col-xl-3  " >
+    <div class="text-white pb-2 px-3 pt-3 mt-3 mx-3 card border-light" style="font-size: large; background-color: #404040;">
+      <p class="text-center">Informations</p>
+      <p>Start Date: {{anime?.startDate.toLocaleDateString()}}</p>
+      <p>End Date: {{anime?.endDate.toLocaleDateString()}}</p>
+      <p>Episode Count: {{anime?.episodeCount}}</p>
+      <p>Status: {{Status.toString(anime?.status)}}</p>
+      <p>Demographics: {{Demographic.toString(anime?.demographic)}}</p>
+    </div>
+  </div>
+  <div class="col-md-6 col-lg-6 col-xl-4 text-white mt-3" >
+    <div class="col-lg-10 col-md-8 ml-auto mr-auto card border-light pb-2 px-3 pt-3" style="background-color: #404040; width: 100%;">
+      <p class="text-center">Description</p>
+      <p style="white-space: pre-line">{{anime?.description}}</p>
+    </div>
+  </div>
+</div>
+<div class="d-flex flex-wrap justify-content-center pb-3" style="background-color: #444;">
+  <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 text-white mt-3" >
+    <app-characters></app-characters>
+  </div>
+</div>
+<div class="d-flex flex-wrap justify-content-center pb-3" style="background-color: #444;">
+  <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 text-white mt-3" >
+    <app-comments [animeId]="anime?.id"></app-comments>
+  </div>
+</div>
+

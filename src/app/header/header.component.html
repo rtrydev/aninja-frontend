@@ -13,7 +13,7 @@
   </button>
   
   <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.collapse]="collapsed" (window:resize)="collapsed = true">
-    <form class="navbar-nav mr-auto ml-auto w-50 flex-row">
+    <form class="navbar-nav mr-auto ml-auto flex-row" [ngClass]="innerWidth < 575 ? 'w-75' : 'w-50'">
       <input
         class="form-control mr-sm-2 w-100"
         style="background-color: #444; border: #555; color: #ddd"

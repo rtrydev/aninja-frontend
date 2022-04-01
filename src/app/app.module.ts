@@ -9,7 +9,18 @@ import { AnimeListItemComponent } from './animes/anime-list/anime-list-item/anim
 import { AnimeTopListComponent } from './animes/anime-top-list/anime-top-list.component';
 import { AnimeTopListItemComponent } from './animes/anime-top-list/anime-top-list-item/anime-top-list-item.component';
 import { FooterComponent } from './footer/footer.component';
+import { AnimeDetailsComponent } from './anime-details/anime-details.component';
+import { RouterModule, Routes } from '@angular/router';
+import { RatingComponent } from './anime-details/rating/rating.component';
+import { CharactersComponent } from './characters/characters.component';
+import { CharacterItemComponent } from './characters/character-item/character-item.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentItemComponent } from './comments/comment-item/comment-item.component';
 
+const appRoutes: Routes = [
+  { path: '', component: AnimesComponent},
+  { path: 'anime/:id', component: AnimeDetailsComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,10 +30,17 @@ import { FooterComponent } from './footer/footer.component';
     AnimeListItemComponent,
     AnimeTopListComponent,
     AnimeTopListItemComponent,
-    FooterComponent
+    FooterComponent,
+    AnimeDetailsComponent,
+    RatingComponent,
+    CharactersComponent,
+    CharacterItemComponent,
+    CommentsComponent,
+    CommentItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

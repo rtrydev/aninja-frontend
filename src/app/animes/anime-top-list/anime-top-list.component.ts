@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Anime } from '../anime-model';
-import { AnimeService } from 'src/app/anime.service';
+import { RatingService } from 'src/app/rating.service';
+import { AnimeRating } from '../anime-rating-model';
 
 @Component({
   selector: 'app-anime-top-list',
@@ -9,12 +9,12 @@ import { AnimeService } from 'src/app/anime.service';
 })
 export class AnimeTopListComponent implements OnInit {
 
-  animes: Anime[] = [];
+  animes: AnimeRating[] = [];
 
-  constructor(private animeService: AnimeService) { }
+  constructor(private ratingService: RatingService) { }
 
   ngOnInit(): void {
-    this.animes = this.animeService.getAnimes();
+    this.animes = this.ratingService.getAnimesWithTopRating();
   }
 
 }
