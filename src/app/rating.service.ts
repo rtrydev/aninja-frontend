@@ -10,12 +10,12 @@ import { AnimeRating } from './animes/anime-rating-model';
 export class RatingService {
 
   private ratings: Rating[] = [
-    new Rating(1, 4.5, 'good', {id: 1, name: 'rtry'}),
-    new Rating(1, 3.5, 'ok', {id: 2, name: 'admin'}),
-    new Rating(1, 4.5, 'good', {id: 3, name: 'some user'}),
-    new Rating(2, 3.5, 'ok', {id: 1, name: 'rtry'}),
-    new Rating(2, 3.5, 'ok ok', {id: 2, name: 'admin'}),
-    new Rating(2, 2.5, 'meh', {id: 3, name: 'some user'})
+    new Rating(1, 8, 'good', {id: 1, name: 'rtry'}),
+    new Rating(1, 6, 'ok', {id: 2, name: 'admin'}),
+    new Rating(1, 8, 'good', {id: 3, name: 'some user'}),
+    new Rating(2, 6, 'ok', {id: 1, name: 'rtry'}),
+    new Rating(2, 7, 'ok ok', {id: 2, name: 'admin'}),
+    new Rating(2, 3, 'meh', {id: 3, name: 'some user'})
   ];
 
   private animes: AnimeRating[] = [

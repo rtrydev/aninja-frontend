@@ -1,8 +1,12 @@
 <div class="d-flex flex-wrap justify-content-center" style="background-color: #444">
-  <div class="text-center p-3">
-    <img src="{{ anime?.imgUrl }}" />
+  <div class="col-xl-2 text-center p-3 mt-3">
+    <img src="{{ anime?.imgUrl }}" width="75%"/>
+    <div class="text-white" style="font-size: large;">
+      <p>{{anime?.translatedTitle}}</p>
+      <p>{{anime?.originalTitle}}</p>
+    </div>
   </div>
-  <div class="p-4">
-      <app-rating [anime]="anime"></app-rating>
+  <div class="col-xl-4">
+    <app-rating [anime]="anime"></app-rating>
   </div>
 </div>

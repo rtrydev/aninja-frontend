@@ -1,8 +1,34 @@
-<div class="text-center text-white" style="font-size: large;">
-    <p>{{anime?.translatedTitle}}</p>
-    <p>{{anime?.originalTitle}}</p>
-</div>
-<div class="d-flex flex-wrap justify-content-center" >
-  <p class="text-white m-3" style="font-size: x-large;">Rating: </p>
-  <div class="badge badge-secondary p-2 m-2" style="font-size: xx-large;">{{ratingAvg.toFixed(2)}}</div> 
+<div class="col-xl-10 mt-sm-2 mt-xl-4">
+  <div class="mx-2">
+    <div class="d-flex flex-wrap justify-content-center" >
+      <p class="text-white mx-2 mt-1" style="font-size: x-large;">Average Rating: </p>
+      <div class="badge badge-secondary p-2 mb-2" style="font-size: xx-large;">{{ratingAvg.toFixed(2)}}</div>
+    </div>
+  </div>
+
+  <p class="text-white my-3 text-center" style="font-size: large;">Your rating:</p>
+  <form class="d-flex flex-wrap justify-content-center w-100">
+    <select class="form-control mx-1" style="background-color: #555; color: #ddd;" name="rating" id="rating-select">
+      <option value="10">10 - Masterpiece</option>
+      <option value="9">9 - Almost perfect</option>
+      <option value="8">8 - Great</option>
+      <option value="7">7 - Very good</option>
+      <option value="6">6 - Good</option>
+      <option value="5">5 - Average</option>
+      <option value="4">4 - Below Average</option>
+      <option value="3">3 - Cliched</option>
+      <option value="2">2 - Bad</option>
+      <option value="1">1 - Garbage</option>
+    </select>
+    <textarea
+      class="form-control mx-1 mt-3 w-100"
+      style="background-color: #555; color: #ddd; height: 200px;"
+      type="text"
+      placeholder="Write you review"
+    ></textarea>
+    <button class="btn btn-success m-3" type="submit">
+      Submit
+    </button>
+  </form>
+
 </div>
