@@ -16,6 +16,7 @@ import { CharactersComponent } from './characters/characters.component';
 import { CharacterItemComponent } from './characters/character-item/character-item.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentItemComponent } from './comments/comment-item/comment-item.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: '', component: AnimesComponent},
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     CharactersComponent,
     CharacterItemComponent,
     CommentsComponent,
-    CommentItemComponent
+    CommentItemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
