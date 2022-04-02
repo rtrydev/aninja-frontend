@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +15,7 @@ export class LoginFormComponent implements OnInit {
     password: ['', [Validators.minLength(6), Validators.required]]
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +25,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
-    alert(this.userLoginForm.value['email'] + ' ' + this.userLoginForm.value['password']);
+    this.userService.loginUser(this.userLoginForm.value.name, this.userLoginForm.value.password);
   }
 
 }
