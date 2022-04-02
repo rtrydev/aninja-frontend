@@ -96,7 +96,7 @@
         class="text-danger"
         *ngIf="userRegisterFormControl['password'].errors?.['minlength']"
       >
-        Password should contain at least 8 characters.
+        Password should contain at least 6 characters.
       </div>
       <div
         class="text-danger"
@@ -105,6 +105,41 @@
         Password is required.
       </div>
     </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      id="passwordConfirm"
+      name="passwordConfirm"
+      class="form-control border-light text-white mx-md-0 mx-sm-2 mt-3 shadow"
+      placeholder="Confirm Password"
+      type="password"
+      style="background-color: #444"
+      formControlName="passwordConfirm"
+    />
+    <div
+      class="alert"
+      style="background-color: #404040"
+      *ngIf="
+        !userRegisterFormControl['passwordConfirm'].valid &&
+        (userRegisterFormControl['passwordConfirm'].dirty ||
+          userRegisterFormControl['passwordConfirm'].touched)
+      "
+    >
+      <div
+        class="text-danger"
+        *ngIf="userRegisterFormControl['passwordConfirm'].errors?.['required']"
+      >
+        Password is required.
+      </div>
+    </div>
+    <div
+        class="text-danger"
+        *ngIf="userRegisterForm.errors?.['mustMatch'] && (userRegisterFormControl['passwordConfirm'].dirty ||
+        userRegisterFormControl['passwordConfirm'].touched)"
+      >
+        Passwords must be the same.
+      </div>
   </div>
 
   <button
