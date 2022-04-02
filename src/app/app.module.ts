@@ -16,6 +16,12 @@ import { CharactersComponent } from './characters/characters.component';
 import { CharacterItemComponent } from './characters/character-item/character-item.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentItemComponent } from './comments/comment-item/comment-item.component';
+import { LoginComponent } from './login/login.component';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
+import { LoginFormComponent } from './login/login-form/login-form.component';
+import { RegisterFormComponent } from './login/register-form/register-form.component';
 
 const appRoutes: Routes = [
   { path: '', component: AnimesComponent},
@@ -36,11 +42,18 @@ const appRoutes: Routes = [
     CharactersComponent,
     CharacterItemComponent,
     CommentsComponent,
-    CommentItemComponent
+    CommentItemComponent,
+    LoginComponent,
+    LoginFormComponent,
+    RegisterFormComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'})
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'}),
+    BrowserAnimationsModule,
+    AngularMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

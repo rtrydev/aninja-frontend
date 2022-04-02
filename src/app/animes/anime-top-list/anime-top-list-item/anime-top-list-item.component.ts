@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, HostListener } from '@angular/core';
-import { AnimeService } from 'src/app/anime.service';
-import { Anime } from '../../anime-model';
-import { AnimeRating } from '../../anime-rating-model';
+import { AnimeService } from 'src/app/services/anime.service';
+import { Anime } from 'src/app/models/anime-model';
+import { AnimeRating } from 'src/app/models/anime-rating-model';
 
 @Component({
   selector: 'app-anime-top-list-item',
