@@ -1,0 +1,117 @@
+<form
+  class="text-center p-2"
+  [formGroup]="userRegisterForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="form-group mt-2">
+    <input
+      id="name"
+      name="name"
+      class="form-control border-light text-white mx-md-0 mx-sm-2 shadow"
+      placeholder="Name"
+      type="text"
+      style="background-color: #444"
+      formControlName="name"
+    />
+
+    <div
+      style="background-color: #404040"
+      *ngIf="
+        !userRegisterFormControl['name'].valid &&
+        (userRegisterFormControl['name'].dirty ||
+          userRegisterFormControl['name'].touched)
+      "
+      class="alert"
+    >
+      <div
+        class="text-danger"
+        *ngIf="userRegisterFormControl['name'].errors?.['minlength']"
+      >
+        Name should contain at least 3 characters.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="userRegisterFormControl['email'].errors?.['required']"
+      >
+        Name is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group mt-2">
+    <input
+      id="email"
+      name="email"
+      class="form-control border-light text-white mx-md-0 mx-sm-2 shadow"
+      placeholder="Email"
+      type="email"
+      style="background-color: #444"
+      formControlName="email"
+    />
+
+    <div
+      style="background-color: #404040"
+      *ngIf="
+        !userRegisterFormControl['email'].valid &&
+        (userRegisterFormControl['email'].dirty ||
+          userRegisterFormControl['email'].touched)
+      "
+      class="alert"
+    >
+      <div
+        class="text-danger"
+        *ngIf="userRegisterFormControl['email'].errors?.['email'] || userRegisterFormControl['email'].errors?.['pattern']"
+      >
+        Invalid email.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="userRegisterFormControl['email'].errors?.['required']"
+      >
+        Email is required.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input
+      id="password"
+      name="password"
+      class="form-control border-light text-white mx-md-0 mx-sm-2 mt-3 shadow"
+      placeholder="Password"
+      type="password"
+      style="background-color: #444"
+      formControlName="password"
+    />
+    <div
+      class="alert"
+      style="background-color: #404040"
+      *ngIf="
+        !userRegisterFormControl['password'].valid &&
+        (userRegisterFormControl['password'].dirty ||
+          userRegisterFormControl['password'].touched)
+      "
+    >
+      <div
+        class="text-danger"
+        *ngIf="userRegisterFormControl['password'].errors?.['minlength']"
+      >
+        Password should contain at least 8 characters.
+      </div>
+      <div
+        class="text-danger"
+        *ngIf="userRegisterFormControl['password'].errors?.['required']"
+      >
+        Password is required.
+      </div>
+    </div>
+  </div>
+
+  <button
+    class="btn btn-success shadow m-3 mt-4"
+    type="submit"
+    [disabled]="!userRegisterForm.valid"
+  >
+    Submit
+  </button>
+</form>

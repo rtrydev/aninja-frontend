@@ -4,72 +4,13 @@
     class="card text-white border-light p-3 shadow col-md-6 col-lg-4 col-xl-3"
     style="top: 30%; position: fixed; background-color: #404040; width: 80%"
   >
-    <form
-      class="text-center"
-      [formGroup]="userLoginForm"
-      (ngSubmit)="onSubmit()"
-    >
-      <p class="text-center" style="font-size: large">Login</p>
-      <div class="form-group">
-        <input
-          id="email"
-          name="email"
-          class="form-control border-light text-white mx-md-0 mx-sm-2 shadow"
-          placeholder="Email"
-          type="email"
-          style="background-color: #444"
-          formControlName="email"
-        />
-
-        <div
-          style="background-color: #404040"
-          *ngIf="
-            !userLoginFormControl['email'].valid &&
-            (userLoginFormControl['email'].dirty ||
-              userLoginFormControl['email'].touched)"
-          class="alert">
-          <div
-            class="text-danger"
-            *ngIf="userLoginFormControl['email'].errors?.['email'] || userLoginFormControl['email'].errors?.['pattern']">
-            Invalid email.
-          </div>
-          <div class="text-danger" *ngIf="userLoginFormControl['email'].errors?.['required']">Email is required.</div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <input
-            id="password"
-            name="password"
-            class="form-control border-light text-white mx-md-0 mx-sm-2 mt-3 shadow"
-            placeholder="Password"
-            type="password"
-            style="background-color: #444"
-            formControlName="password"
-        />
-        <div class="alert" style="background-color: #404040;" *ngIf="!userLoginFormControl['password'].valid 
-            && (userLoginFormControl['password'].dirty 
-            || userLoginFormControl['password'].touched)">
-
-            <div
-                class="text-danger"
-                *ngIf="userLoginFormControl['password'].errors?.['minlength']">
-                Password should contain at least 8 characters.
-            </div>
-            <div class="text-danger" *ngIf="userLoginFormControl['password'].errors?.['required']">Password is required.</div>
-
-        </div>
-      </div>
-
-      
-
-      <button
-        class="btn btn-success shadow m-3 mt-4"
-        type="submit"
-        [disabled]="!userLoginForm.valid"
-      >
-        Submit
-      </button>
-    </form>
+    <mat-tab-group mat-stretch-tabs>
+      <mat-tab label="Login" labelClass="text-white">
+        <app-login-form></app-login-form>
+      </mat-tab>
+      <mat-tab label="Register" labelClass="text-white">
+        <app-register-form></app-register-form>
+      </mat-tab>
+    </mat-tab-group>
   </div>
 </div>
