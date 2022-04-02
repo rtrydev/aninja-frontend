@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AnimeService } from '../anime.service';
-import { AnimeDetails } from '../animes/anime-details-model';
-import { Demographic } from '../animes/anime-details-model';
-import { Status } from '../animes/anime-details-model';
+import { AnimeService } from '../services/anime.service';
+import { AnimeDetails } from '../models/anime-details-model';
+import { Demographic } from '../models/anime-details-model';
+import { Status } from '../models/anime-details-model';
 
 @Component({
   selector: 'app-anime-details',

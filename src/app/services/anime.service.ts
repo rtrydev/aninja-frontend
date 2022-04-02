@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { AnimeDetails, Demographic, Status } from './animes/anime-details-model';
-import { Anime } from './animes/anime-model';
+import { AnimeDetails, Demographic, Status } from '../models/anime-details-model';
+import { Anime } from '../models/anime-model';
 
 @Injectable({
   providedIn: 'root'

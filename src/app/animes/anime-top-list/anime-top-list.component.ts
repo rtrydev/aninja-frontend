@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RatingService } from 'src/app/rating.service';
-import { AnimeRating } from '../anime-rating-model';
+import { RatingService } from 'src/app/services/rating.service';
+import { AnimeRating } from 'src/app/models/anime-rating-model';
 
 @Component({
   selector: 'app-anime-top-list',

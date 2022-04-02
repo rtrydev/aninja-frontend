@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Rating } from '../anime-details/rating-model';
-import { RatingService } from '../rating.service';
+import { Rating } from '../models/rating-model';
+import { RatingService } from 'src/app/services/rating.service';
 
 @Component({
   selector: 'app-comments',
