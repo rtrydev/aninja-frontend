@@ -1,3 +1,5 @@
-<app-header></app-header>
+<app-header (loginVisible)="showLogin($event)"></app-header>
 <router-outlet></router-outlet>
+<app-login (visibilityChanged)="showLogin($event)" *ngIf="loginVisible" [selectedOption]="loginOption" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></app-login>
+
 <app-footer></app-footer>

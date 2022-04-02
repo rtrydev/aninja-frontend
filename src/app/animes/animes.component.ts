@@ -9,6 +9,7 @@ import { AnimeListComponent } from './anime-list/anime-list.component';
 export class AnimesComponent implements OnInit {
 
   public innerWidth: any;
+  
 
   @HostListener('window:resize', ['$event'])
   onResize(event:any) {

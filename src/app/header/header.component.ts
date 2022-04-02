@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, EventEmitter, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +6,9 @@ import { Component, OnInit, HostListener } from '@angular/core';
   styleUrls: ['./header.component.sass']
 })
 export class HeaderComponent implements OnInit {
-
   collapsed = true;
+  @Output()
+  loginVisible = new EventEmitter<{visible: boolean, option: number}>();
 
   public innerWidth: any;
 
@@ -20,6 +21,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
+  }
+
+  showLogin(){ 
+    this.loginVisible.emit({visible: true, option: 0});
+  }
+
+  showRegister(){ 
+    this.loginVisible.emit({visible: true, option: 1});
   }
 
 }
