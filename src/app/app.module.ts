@@ -17,6 +17,7 @@ import { CharacterItemComponent } from './characters/character-item/character-it
 import { CommentsComponent } from './comments/comments.component';
 import { CommentItemComponent } from './comments/comment-item/comment-item.component';
 import { LoginComponent } from './login/login.component';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', component: AnimesComponent},
@@ -42,6 +43,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'})
   ],
   providers: [],
