@@ -15,15 +15,14 @@ export class AnimeSearchComponent implements OnInit {
   anime: Anime[] = [];
 
   ngOnInit(): void {
-    let name = this.route.snapshot.queryParams['name'].toLowerCase();
-    this.anime = this.animeService.getAnimes().filter(x => x.translatedTitle.toLowerCase().includes(name));
+    let params = this.route.snapshot.queryParams;
+    this.anime = this.animeService.getAnimes(params);
 
     this.route.queryParams.subscribe(
       queryParams => {
-        let name = queryParams['name'].toLowerCase();
-        this.anime = this.animeService.getAnimes().filter(x => x.translatedTitle.toLowerCase().includes(name));
+        this.anime = this.animeService.getAnimes(queryParams);
       }
-    )
+    );
   }
 
 }

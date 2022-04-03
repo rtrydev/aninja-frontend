@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { Params } from '@angular/router';
 import { AnimeDetails, Demographic, Status } from '../models/anime-details-model';
 import { Anime } from '../models/anime-model';
 
@@ -9,8 +10,14 @@ export class AnimeService {
 
   animeSelected = new EventEmitter<Anime>();
 
-  getAnimes() {
-    return this.animes.slice();
+  getAnimes(params: Params) {
+    let name = params['name'].toLowerCase();
+    let animes = this.animes.slice();
+    if(name !== undefined) {
+      animes = animes.filter(x => x.translatedTitle.toLowerCase().includes(name));
+    }
+
+    return animes;
   }
 
   getAnime(id: number){
