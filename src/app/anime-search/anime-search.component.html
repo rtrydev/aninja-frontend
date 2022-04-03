@@ -1,7 +1,9 @@
 <div class="d-flex flex-wrap p-3 justify-content-center dark-background">
-    <div class="card border-light text-white p-3 mt-2 shadow h-100 col-sm-12 col-md-2 dark-background">
-        <p class="text-white text-center">Filters:</p>
-        <form class="col-10 ml-auto mr-auto" 
+    <div class="card border-light text-white p-3 mt-2 shadow h-100 col-sm-11 col-md-2 dark-background">
+        <div class="ml-auto mr-auto text-center">
+            <p class="text-white" style="font-size: large;">Filters:</p>
+        </div>
+        <form class="col-10 ml-auto mr-auto" *ngIf="filtersVisible"
         [formGroup]="animeFiltersForm"
         (ngSubmit)="onSubmit()" >
             <div class="form-group">
@@ -41,8 +43,10 @@
                 <button class="btn btn-success shadow mt-3" type="submit">Apply</button>
             </div>
         </form>
+        <a class="ml-3 text-right" style="color: #9999ff;" (click)="filtersVisible = !filtersVisible">{{filtersVisible ? 'Hide' : 'Show'}}</a>
+
     </div>
-    <div class="col-lg-10 col-xl-7 dark-background">
+    <div class="col-sm-12 col-md-10 col-lg-10 col-xl-7 dark-background">
         <div class="p-1 d-flex flex-wrap justify-content-center ml-auto mr-auto">
             <app-anime-list-item class="" *ngFor="let anime of animes" [anime]="anime"></app-anime-list-item>
         </div>

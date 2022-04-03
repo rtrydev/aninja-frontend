@@ -24,6 +24,7 @@ export class AnimeSearchComponent implements OnInit {
   });
   page: number = 0;
   resultsPerPage: number = 10;
+  filtersVisible: boolean = true;
 
   onSubmit() {
     let existingParams = this.route.snapshot.queryParams;
