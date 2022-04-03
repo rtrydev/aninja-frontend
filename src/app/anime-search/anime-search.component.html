@@ -46,5 +46,6 @@
         <div class="p-1 d-flex flex-wrap justify-content-center ml-auto mr-auto">
             <app-anime-list-item class="" *ngFor="let anime of animes" [anime]="anime"></app-anime-list-item>
         </div>
+        <mat-paginator [pageSize]="10" [pageSizeOptions]="[10, 20, 50]" [length]="100" (page)="onPageChange($event)"></mat-paginator>
     </div>
 </div>

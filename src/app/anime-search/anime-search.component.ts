@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Anime } from '../models/anime-model';
 import { Tag } from '../models/tag-model';
@@ -28,6 +29,11 @@ export class AnimeSearchComponent implements OnInit {
     if(existingParams['name'] !== undefined) paramsFromForm['name'] = existingParams['name'];
     
     this.router.navigate(['/anime'], {queryParams: paramsFromForm})
+  }
+
+  onPageChange(event: PageEvent){
+    let existingParams = this.route.snapshot.queryParams;
+    this.router.navigate(['/anime'], {queryParams: {...existingParams, 'page': event.pageIndex + 1, 'resultsPerPage': event.pageSize} })
   }
 
   tags: Tag[] = [];
