@@ -1,1 +1,50 @@
-<app-anime-list [animes]="anime"></app-anime-list>
+<div class="d-flex flex-wrap p-3" style="background-color: #444;">
+    <div class="card border-light text-white p-3 mt-2 shadow h-100 col-2 " style="background-color: #404040;">
+        <p class="text-white text-center">Filters:</p>
+        <form class="col-10 ml-auto mr-auto" 
+        [formGroup]="animeFiltersForm"
+        (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+                <label for="orderBySelect">Order By:</label>
+                <mat-select id="orderBySelect" class="form-control shadow" style="background-color: #404040; color: #ddd;" formControlName="orderBy">
+                    <mat-option value="None">None</mat-option>
+                    <mat-option value="ByTitle">Title</mat-option>
+                    <mat-option value="ByEpisodesCount">Episodes Count</mat-option>
+                </mat-select>
+            </div>
+            <div class="form-group">
+                <label for="demographicsSelect">Demographics:</label>
+                <mat-select formControlName="demographics" class="form-control shadow" style="background-color: #404040;" id="demographicsSelect" multiple>
+                    <mat-option value="Kids">Kids</mat-option>
+                    <mat-option value="Shounen">Shounen</mat-option>
+                    <mat-option value="Shoujo">Shoujo</mat-option>
+                    <mat-option value="Seinen">Seinen</mat-option>
+                    <mat-option value="Josei">Josei</mat-option>
+                </mat-select>
+                
+            </div>
+            <div class="form-group">
+                <label for="statusSelect">Status:</label>
+                <mat-select formControlName="status" id="statusSelect" class="form-control shadow" style="background-color: #404040;">
+                    <mat-option value="NotYetAired">Not Yet Aired</mat-option>
+                    <mat-option value="CurrentlyAiring">Currently Airing</mat-option>
+                    <mat-option value="FinishedAiring">Finished Airing</mat-option>
+                </mat-select>
+            </div>
+            <div class="form-group">
+                <label for="tagSelect">Tags:</label>
+                <mat-select multiple formControlName="tagIds" id="tagSelect" class="form-control shadow" style="background-color: #404040;">
+                    <mat-option *ngFor="let tag of tags" value="{{tag.id}}">{{tag.name}}</mat-option>
+                </mat-select>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-success shadow mt-3" type="submit">Apply</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-10" style="background-color: #444;">
+        <div class="p-1 d-flex flex-wrap justify-content-center ml-auto mr-auto">
+            <app-anime-list-item class="" *ngFor="let anime of animes" [anime]="anime"></app-anime-list-item>
+        </div>
+    </div>
+</div>
