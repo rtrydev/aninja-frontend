@@ -1,5 +1,5 @@
-<div class="d-flex flex-wrap p-3" style="background-color: #444;">
-    <div class="card border-light text-white p-3 mt-2 shadow h-100 col-2 " style="background-color: #404040;">
+<div class="d-flex flex-wrap p-3 justify-content-center" style="background-color: #444;">
+    <div class="card border-light text-white p-3 mt-2 shadow h-100 col-sm-12 col-md-2 " style="background-color: #404040;">
         <p class="text-white text-center">Filters:</p>
         <form class="col-10 ml-auto mr-auto" 
         [formGroup]="animeFiltersForm"
@@ -42,7 +42,7 @@
             </div>
         </form>
     </div>
-    <div class="col-10" style="background-color: #444;">
+    <div class="col-lg-10 col-xl-7" style="background-color: #444;">
         <div class="p-1 d-flex flex-wrap justify-content-center ml-auto mr-auto">
             <app-anime-list-item class="" *ngFor="let anime of animes" [anime]="anime"></app-anime-list-item>
         </div>
