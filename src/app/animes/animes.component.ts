@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener } from '@angular/core';
+import { Anime } from '../models/anime-model';
+import { AnimeService } from '../services/anime.service';
 import { AnimeListComponent } from './anime-list/anime-list.component';
 
 @Component({
@@ -9,6 +11,7 @@ import { AnimeListComponent } from './anime-list/anime-list.component';
 export class AnimesComponent implements OnInit {
 
   public innerWidth: any;
+  animes: Anime[] = [];
   
 
   @HostListener('window:resize', ['$event'])
@@ -16,10 +19,11 @@ export class AnimesComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
-  constructor() { }
+  constructor(private animeService: AnimeService) { }
 
   ngOnInit() {
       this.innerWidth = window.innerWidth;
+      this.animes = this.animeService.getAnimes();
   }
 
 }
