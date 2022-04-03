@@ -1,12 +1,12 @@
-<div class="d-flex flex-wrap p-3 justify-content-center" style="background-color: #424242;">
-    <div class="card border-light text-white p-3 mt-2 shadow h-100 col-sm-12 col-md-2 " style="background-color: #424242;">
+<div class="d-flex flex-wrap p-3 justify-content-center dark-background">
+    <div class="card border-light text-white p-3 mt-2 shadow h-100 col-sm-12 col-md-2 dark-background">
         <p class="text-white text-center">Filters:</p>
         <form class="col-10 ml-auto mr-auto" 
         [formGroup]="animeFiltersForm"
         (ngSubmit)="onSubmit()" >
             <div class="form-group">
                 <label for="orderBySelect">Order By:</label>
-                <mat-select id="orderBySelect" class="form-control shadow" style="background-color: #424242; color: #ddd;" formControlName="orderBy">
+                <mat-select id="orderBySelect" class="form-control shadow" style="background-color: #404040;" formControlName="orderBy">
                     <mat-option value="None">None</mat-option>
                     <mat-option value="ByTitle">Title</mat-option>
                     <mat-option value="ByEpisodesCount">Episodes Count</mat-option>
@@ -14,7 +14,7 @@
             </div>
             <div class="form-group">
                 <label for="demographicsSelect">Demographics:</label>
-                <mat-select formControlName="demographics" class="form-control shadow" style="background-color: #424242;" id="demographicsSelect" multiple>
+                <mat-select formControlName="demographics" class="form-control shadow" style="background-color: #404040;" id="demographicsSelect" multiple>
                     <mat-option value="Kids">Kids</mat-option>
                     <mat-option value="Shounen">Shounen</mat-option>
                     <mat-option value="Shoujo">Shoujo</mat-option>
@@ -42,7 +42,7 @@
             </div>
         </form>
     </div>
-    <div class="col-lg-10 col-xl-7" style="background-color: #424242;">
+    <div class="col-lg-10 col-xl-7 dark-background">
         <div class="p-1 d-flex flex-wrap justify-content-center ml-auto mr-auto">
             <app-anime-list-item class="" *ngFor="let anime of animes" [anime]="anime"></app-anime-list-item>
         </div>
