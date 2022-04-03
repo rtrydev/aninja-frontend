@@ -22,6 +22,8 @@ export class AnimeSearchComponent implements OnInit {
     'status': undefined,
     'tagIds': []
   });
+  page: number = 0;
+  resultsPerPage: number = 10;
 
   onSubmit() {
     let existingParams = this.route.snapshot.queryParams;
@@ -40,9 +42,12 @@ export class AnimeSearchComponent implements OnInit {
   animes: Anime[] = [];
 
   ngOnInit(): void {
-    this.tags = this.tagService.getTags();
 
     let params = this.route.snapshot.queryParams;
+    this.page = params['page'] - 1;
+    this.resultsPerPage = params['resultsPerPage'];
+
+    this.tags = this.tagService.getTags();
     this.animes = this.animeService.getAnimes(params);
 
     this.route.queryParams.subscribe(
