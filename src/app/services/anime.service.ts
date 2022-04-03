@@ -9,7 +9,7 @@ import { Anime } from '../models/anime-model';
 export class AnimeService {
 
   getAnimes(params: Params | null = null) {
-    let name = params !== null ? params['name'].toLowerCase() : undefined;
+    let name = params !== null ? params['name']?.toLowerCase() : undefined;
     let animes = this.animes.slice();
     if(name !== undefined) {
       animes = animes.filter(x => x.translatedTitle.toLowerCase().includes(name));
