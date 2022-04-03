@@ -1,14 +1,16 @@
-<div class="blurred-background" (click)="closeLogin()"></div>
+<div class="blurred-background"
+     (click)="closeLogin()"></div>
 <div class="d-flex justify-content-center">
-  <div
-    class="card text-white border-light p-3 shadow col-md-6 col-lg-4 col-xl-3"
-    style="top: 30%; position: fixed; background-color: #404040; width: 80%"
-  >
-    <mat-tab-group [selectedIndex]="selectedOption" mat-stretch-tabs>
-      <mat-tab label="Login" labelClass="text-white">
+  <div class="card text-white border-light p-3 shadow col-md-6 col-lg-4 col-xl-3"
+       style="top: 30%; position: fixed; background-color: #404040; width: 80%">
+    <mat-tab-group [selectedIndex]="selectedOption"
+                   mat-stretch-tabs>
+      <mat-tab label="Login"
+               labelClass="text-white">
         <app-login-form></app-login-form>
       </mat-tab>
-      <mat-tab label="Register" labelClass="text-white">
+      <mat-tab label="Register"
+               labelClass="text-white">
         <app-register-form></app-register-form>
       </mat-tab>
     </mat-tab-group>
