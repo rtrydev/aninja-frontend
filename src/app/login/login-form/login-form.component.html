@@ -31,7 +31,7 @@
               </div>
               <div
                 class="text-danger"
-                *ngIf="userLoginFormControl['email'].errors?.['required']"
+                *ngIf="userLoginFormControl['name'].errors?.['required']"
               >
                 Name is required.
               </div>
@@ -61,7 +61,7 @@
                 class="text-danger"
                 *ngIf="userLoginFormControl['password'].errors?.['minlength']"
               >
-                Password should contain at least 8 characters.
+                Password should contain at least 6 characters.
               </div>
               <div
                 class="text-danger"
