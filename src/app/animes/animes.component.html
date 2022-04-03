@@ -2,14 +2,14 @@
     <div class="pt-3 justify-content-center d-flex bd-highlight dark-background">
         <p class="text-white" style="font-family: 'Rubik'; font-size: larger;">TOP AIRING ANIME</p>
     </div>
-    <div [ngClass]="innerWidth < 1750 ? 'horizontal-scroll' : 'd-flex justify-content-center'" style="overflow-x: auto; background-color: #444;">
+    <div [ngClass]="innerWidth < 1750 ? 'horizontal-scroll' : 'd-flex justify-content-center'" class="dark-background" style="overflow-x: auto;">
         <app-anime-top-list></app-anime-top-list>
     </div>
     
     <div class="pt-3 justify-content-center d-flex bd-highlight dark-background">
         <p class="text-white" style="font-family: 'Rubik'; font-size: larger;">TOP 10 ANIME OF ALL TIME</p>
     </div>
-    <div [ngClass]="innerWidth < 1750 ? 'horizontal-scroll' : 'd-flex justify-content-center'" style="overflow-x: auto; background-color: #444;" >
+    <div [ngClass]="innerWidth < 1750 ? 'horizontal-scroll' : 'd-flex justify-content-center'" class="dark-background" style="overflow-x: auto" >
         <app-anime-top-list></app-anime-top-list>
     </div>
     
