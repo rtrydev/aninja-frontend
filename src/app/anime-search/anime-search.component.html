@@ -1,5 +1,5 @@
-<div class="d-flex flex-wrap p-3 justify-content-center dark-background">
-    <div class="card border-light text-white p-3 mt-2 shadow h-100 col-sm-11 col-md-2 dark-background">
+<div class="d-flex flex-wrap p-1 justify-content-center dark-background">
+    <div class="card border-light text-white p-2 mt-2 shadow h-100 col-sm-10 mx-4 col-md-2 dark-background">
         <div class="ml-auto mr-auto text-center">
             <p class="text-white" style="font-size: large;">Filters:</p>
         </div>
@@ -43,13 +43,13 @@
                 <button class="btn btn-success shadow mt-3" type="submit">Apply</button>
             </div>
         </form>
-        <a class="ml-3 text-right" style="color: #9999ff;" (click)="filtersVisible = !filtersVisible">{{filtersVisible ? 'Hide' : 'Show'}}</a>
+        <a class="mr-3 mb-2 text-right" style="color: #9999ff;" (click)="filtersVisible = !filtersVisible">{{filtersVisible ? 'Hide' : 'Show'}}</a>
 
     </div>
     <div class="col-sm-12 col-md-10 col-lg-10 col-xl-7 dark-background">
         <div class="p-1 d-flex flex-wrap justify-content-center ml-auto mr-auto">
             <app-anime-list-item class="" *ngFor="let anime of animes" [anime]="anime"></app-anime-list-item>
         </div>
-        <mat-paginator [pageSize]="resultsPerPage" [pageIndex]="page" [pageSizeOptions]="[10, 20, 50]" [length]="100" (page)="onPageChange($event)"></mat-paginator>
+        <mat-paginator style="margin-right: 10%" [pageSize]="resultsPerPage" [pageIndex]="page" [pageSizeOptions]="[10, 20, 50]" [length]="animes.length" (page)="onPageChange($event)"></mat-paginator>
     </div>
 </div>
