@@ -8,8 +8,6 @@ import { Anime } from '../models/anime-model';
 })
 export class AnimeService {
 
-  animeSelected = new EventEmitter<Anime>();
-
   getAnimes(params: Params) {
     let name = params['name'].toLowerCase();
     let animes = this.animes.slice();

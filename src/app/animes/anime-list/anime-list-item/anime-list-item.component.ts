@@ -25,8 +25,4 @@ export class AnimeListItemComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
-  onAnimeSelected(anime: Anime) {
-    this.animeService.animeSelected.emit(this.anime);
-  }
-
 }
