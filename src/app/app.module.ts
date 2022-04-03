@@ -22,9 +22,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { RegisterFormComponent } from './login/register-form/register-form.component';
+import { AnimeSearchComponent } from './anime-search/anime-search.component';
 
 const appRoutes: Routes = [
   { path: '', component: AnimesComponent},
+  { path: 'anime', component: AnimeSearchComponent},
   { path: 'anime/:id', component: AnimeDetailsComponent}
 ];
 @NgModule({
@@ -45,7 +47,8 @@ const appRoutes: Routes = [
     CommentItemComponent,
     LoginComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    AnimeSearchComponent
   ],
   imports: [
     BrowserModule,

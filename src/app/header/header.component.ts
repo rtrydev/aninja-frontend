@@ -1,4 +1,6 @@
 import { Component, OnInit, HostListener, EventEmitter, Output, Input } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +12,10 @@ export class HeaderComponent implements OnInit {
   @Output()
   loginVisible = new EventEmitter<{visible: boolean, option: number}>();
 
+  animeSearchForm = this.formBuilder.group({
+    name: ''
+  });
+
   public innerWidth: any;
 
   @HostListener('window:resize', ['$event'])
@@ -17,7 +23,7 @@ export class HeaderComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
@@ -29,6 +35,10 @@ export class HeaderComponent implements OnInit {
 
   showRegister(){ 
     this.loginVisible.emit({visible: true, option: 1});
+  }
+
+  onSubmit(){
+    this.router.navigate(['/anime'], {queryParams: {'name': this.animeSearchForm.value.name}});
   }
 
 }
