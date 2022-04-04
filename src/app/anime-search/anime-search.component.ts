@@ -19,7 +19,7 @@ export class AnimeSearchComponent implements OnInit {
     'name': undefined,
     'orderBy': 'None',
     'demographics' : [],
-    'status': undefined,
+    'statuses': undefined,
     'tagIds': []
   });
   page: number = 0;
