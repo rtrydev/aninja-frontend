@@ -23,6 +23,7 @@ import { AngularMaterialModule } from './angular-material.module';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { RegisterFormComponent } from './login/register-form/register-form.component';
 import { AnimeSearchComponent } from './anime-search/anime-search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', component: AnimesComponent},
@@ -56,7 +57,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, {scrollPositionRestoration: 'enabled'}),
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

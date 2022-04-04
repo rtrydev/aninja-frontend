@@ -1,7 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Params } from '@angular/router';
 import { AnimeDetails, Demographic, Status } from '../models/anime-details-model';
 import { Anime } from '../models/anime-model';
+import { map, pluck } from 'rxjs/operators';
+import { AnimeGetAllResult } from '../models/anime-getall-result';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +14,14 @@ export class AnimeService {
   getAnimes(params: Params | null = null) {
     let name = params !== null ? params['name']?.toLowerCase() : undefined;
     let animes = this.animes.slice();
-    if(name !== undefined) {
+    if (name !== undefined) {
       animes = animes.filter(x => x.translatedTitle.toLowerCase().includes(name));
     }
-
-    return animes;
+    return this.httpClient
+      .get<AnimeGetAllResult>('http://rtrydev.com/api/anime', {params: {...params}});
   }
 
-  getAnime(id: number){
+  getAnime(id: number) {
     return this.animeDetails.find(x => x.id == id);
   }
 
@@ -38,7 +41,7 @@ export class AnimeService {
   private animeDetails: AnimeDetails[] = [
     new AnimeDetails(1, 'ひぐらしのなく頃に', 'Higurashi no naku koro ni', 'https://cdn.myanimelist.net/images/anime/12/19634.jpg', 'Keiichi Maebara has just moved to the quiet little village of Hinamizawa in the summer of 1983, and quickly becomes inseparable friends with schoolmates Rena Ryuuguu, Mion Sonozaki, Satoko Houjou, and Rika Furude. However, darkness lurks underneath the seemingly idyllic life they lead. \n\nAs the village prepares for its annual festival, Keiichi learns about the local legends surrounding it. To his horror, he discovers that there have been several murders and disappearances in the village in the recent years, and that they all seem to be connected to the festival and the village\'s patron god, Oyashiro. Keiichi tries to ask his new friends about these incidents, but they are suspiciously silent and refuse to give him the answers he needs. As more and more bizarre events occur, he wonders just what else his friends might be keeping from him, and if he can even trust them at all. \n\nWhen madness and paranoia begin taking root in Keiichi\'s heart, he will stumble straight into the mysteries at work in Higurashi no Naku Koro ni, a story that is told across multiple arcs.', new Date('2006-05-05T00:00:00Z'), new Date('2006-12-05T00:00:00Z'), 26, Status.FinishedAiring, Demographic.Seinen),
     new AnimeDetails(2, 'デスノート', 'Death Note', 'https://cdn.myanimelist.net/images/anime/9/9453.jpg', '', new Date('2006-05-05T00:00:00Z'), new Date('2006-12-05T00:00:00Z'), 26, Status.FinishedAiring, Demographic.Seinen),
-    new AnimeDetails(3, 'かぐや姫は告らせたい','Kaguya-sama wa korurasetai', 'https://cdn.myanimelist.net/images/anime/1430/118919.jpg', '', new Date('2006-05-05T00:00:00Z'), new Date('2006-12-05T00:00:00Z'), 26, Status.CurrentlyAiring, Demographic.Seinen),
+    new AnimeDetails(3, 'かぐや姫は告らせたい', 'Kaguya-sama wa korurasetai', 'https://cdn.myanimelist.net/images/anime/1430/118919.jpg', '', new Date('2006-05-05T00:00:00Z'), new Date('2006-12-05T00:00:00Z'), 26, Status.CurrentlyAiring, Demographic.Seinen),
     new AnimeDetails(4, '古見さんは、コミュ症です', 'Komi-san wa, Comyushou desu', 'https://cdn.myanimelist.net/images/anime/1108/121157.jpg', '', new Date('2006-05-05T00:00:00Z'), new Date('2006-12-05T00:00:00Z'), 26, Status.CurrentlyAiring, Demographic.Seinen),
     new AnimeDetails(5, 'ジョジョの奇妙な冒険', 'Jojo no kimyouna bouken', 'https://cdn.myanimelist.net/images/anime/3/40409.jpg', '', new Date('2006-05-05T00:00:00Z'), new Date('2006-12-05T00:00:00Z'), 26, Status.FinishedAiring, Demographic.Seinen),
     new AnimeDetails(6, 'スパイファミリ', 'Spy x Family', 'https://cdn.myanimelist.net/images/anime/1440/121382.jpg', '', new Date('2006-05-05T00:00:00Z'), new Date('2006-12-05T00:00:00Z'), 26, Status.CurrentlyAiring, Demographic.Seinen),
@@ -47,5 +50,5 @@ export class AnimeService {
     new AnimeDetails(9, '化物語', 'Bakemonogatari', 'https://cdn.myanimelist.net/images/anime/11/75274.jpg', '', new Date('2006-05-05T00:00:00Z'), new Date('2006-12-05T00:00:00Z'), 26, Status.FinishedAiring, Demographic.Seinen),
     new AnimeDetails(10, '鋼の錬金術師', 'Fullmetal Alchemist: Brotherhood', 'https://cdn.myanimelist.net/images/anime/1223/96541.jpg', '', new Date('2006-05-05T00:00:00Z'), new Date('2006-12-05T00:00:00Z'), 26, Status.FinishedAiring, Demographic.Seinen)
   ]
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 }

@@ -41,6 +41,7 @@ export class AnimeSearchComponent implements OnInit {
 
   tags: Tag[] = [];
   animes: Anime[] = [];
+  allAnimeCount: number = 0;
 
   ngOnInit(): void {
 
@@ -49,11 +50,21 @@ export class AnimeSearchComponent implements OnInit {
     this.resultsPerPage = params['resultsPerPage'];
 
     this.tags = this.tagService.getTags();
-    this.animes = this.animeService.getAnimes(params);
+    this.animeService.getAnimes(params).subscribe(
+      result => {
+        this.animes = result.animes;
+        this.allAnimeCount = result.allCount;
+      }
+    );
 
     this.route.queryParams.subscribe(
       queryParams => {
-        this.animes = this.animeService.getAnimes(queryParams);
+        this.animeService.getAnimes(queryParams).subscribe(
+          result => {
+            this.animes = result.animes;
+        this.allAnimeCount = result.allCount;
+          }
+        );
       }
     );
   }
