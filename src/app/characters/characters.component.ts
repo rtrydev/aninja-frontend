@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CharacterService } from '../services/character.service';
 import { Character } from '../models/character-model';
 
@@ -8,12 +8,20 @@ import { Character } from '../models/character-model';
   styleUrls: ['./characters.component.sass']
 })
 export class CharactersComponent implements OnInit {
+  @Input()
+  animeId: number | undefined = -1;
 
   characters: Character[] = [];
   constructor(private characterService: CharacterService) { }
 
   ngOnInit(): void {
-    this.characters = this.characterService.getCharacters();
+    if(this.animeId !== undefined){
+      this.characterService.getCharacters(this.animeId)
+      .subscribe(result => {
+        this.characters = result;
+      })
+    }
+    
   }
 
 }
