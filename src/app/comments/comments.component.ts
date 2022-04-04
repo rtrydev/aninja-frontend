@@ -16,7 +16,12 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.animeId !== undefined){
-      this.comments = this.ratingService.getRatingsForAnime(this.animeId);
+      this.ratingService.getRatingsForAnime(this.animeId)
+        .subscribe(
+          result => {
+            this.comments = result;
+          }
+        )
     }
   }
 

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user-model';
 
@@ -8,19 +9,13 @@ export class UserService {
 
   public currentUser: User | undefined = undefined;
 
-  private users: User[] = [
-    new User(1, 'rtry', 'User'),
-    new User(2, 'admin', 'Admin'),
-    new User(3, 'user', 'User')
-  ]
-
   getUser(id: number) {
-    return this.users.find(x => x.id === id);
+    return this.httpClient.get<User>('http://rtrydev.com/api/user/' + id);
   }
 
   loginUser(name: string, password: string) {
-    this.currentUser = this.users.find(x => x.name === name);
+    //this.currentUser = this.users.find(x => x.name === name);
   }
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 }
