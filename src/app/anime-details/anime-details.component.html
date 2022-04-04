@@ -17,8 +17,8 @@
     <div class="text-white pb-2 px-3 pt-3 mt-3 mx-3 card shadow border-light"
          style="font-size: large; background-color: #404040;">
       <p class="text-center">Informations</p>
-      <p>Start Date: {{anime?.startDate | date: 'dd MMM yyyy'}}</p>
-      <p>End Date: {{anime?.endDate | date: 'dd MMM yyyy'}}</p>
+      <p>Start Date: {{startDateKnown ? (anime?.startDate | date: 'dd MMM yyyy') : '?'}}</p>
+      <p>End Date: {{endDateKnown ? (anime?.endDate | date: 'dd MMM yyyy') : '?'}}</p>
       <p>Episode Count: {{anime?.episodeCount}}</p>
       <p>Status: {{anime?.status}}</p>
       <p>Demographics: {{anime?.demographic}}</p>

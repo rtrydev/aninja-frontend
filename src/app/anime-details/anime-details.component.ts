@@ -12,6 +12,9 @@ import { map } from 'rxjs/operators';
 })
 export class AnimeDetailsComponent implements OnInit {
 
+  defaultDate = new Date('1970-01-01T00:00:00Z');
+  startDateKnown = false;
+  endDateKnown = false;
   anime: AnimeDetails | null = null;
   Demographic: any = Demographic;
   Status: any = Status;
@@ -24,13 +27,14 @@ export class AnimeDetailsComponent implements OnInit {
       .subscribe(result => {
         this.anime = result;
       })
-
     this.route.params
       .subscribe(
         params => {
           this.animeService.getAnime(params['id'])
             .subscribe(result => {
               this.anime = result;
+              if(result.startDate.toString() !== this.defaultDate.toISOString().replace('.000', '')) this.startDateKnown = true;
+              if(result.endDate.toString() !== this.defaultDate.toISOString().replace('.000', '')) this.endDateKnown = true;
             })
 
         }
