@@ -30,6 +30,7 @@ export class AnimesComponent implements OnInit {
           this.allAnimeCount = result.allCount;
         }
       );
+
   }
 
 }

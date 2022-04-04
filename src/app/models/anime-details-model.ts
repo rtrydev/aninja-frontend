@@ -38,8 +38,8 @@ export class AnimeDetails {
     public translatedTitle: string;
     public imgUrl: string;
     public description: string;
-    public startDate: any;
-    public endDate: any;
+    public startDate: Date;
+    public endDate: Date;
     public episodeCount: number;
     public status: Status;
     public demographic: Demographic;

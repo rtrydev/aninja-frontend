@@ -10,14 +10,17 @@ import { RatingService } from 'src/app/services/rating.service';
 export class RatingComponent implements OnInit {
 
   @Input()
-  anime: AnimeDetails | undefined = undefined;
+  anime: AnimeDetails | null = null;
 
   ratingAvg: number = 0.0;
   constructor(private ratingService: RatingService) { }
 
   ngOnInit(): void {
-    if(this.anime !== undefined){
-      this.ratingAvg = this.ratingService.getAvgRatingForAnime(this.anime?.id);
+    if(this.anime !== null){
+      this.ratingService.getAvgRatingForAnime(this.anime?.id)
+        .subscribe(result => {
+          this.ratingAvg = result;
+        })
     }
   }
 
