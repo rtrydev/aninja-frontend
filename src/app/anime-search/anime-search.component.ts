@@ -49,7 +49,12 @@ export class AnimeSearchComponent implements OnInit {
     this.page = params['page'] - 1;
     this.resultsPerPage = params['resultsPerPage'];
 
-    this.tags = this.tagService.getTags();
+    this.tagService.getTags()
+      .subscribe(
+        result => {
+          this.tags = result;
+        }
+      )
     this.animeService.getAnimes(params).subscribe(
       result => {
         this.animes = result.animes;
