@@ -1,9 +1,10 @@
 <div class="d-flex dark-background">
-    <div class="col-sm-12 col-md-8 dark-background mr-auto ml-auto">
+    <div class="col-sm-12 col-md-10 dark-background mr-auto ml-auto">
         <div class="">
             
             <form class="d-flex flex-wrap justify-content-center text-white p-2" *ngIf="filtersVisible"
             [formGroup]="animeFiltersForm"
+            
             (ngSubmit)="onSubmit()" >
                 <div class="form-group m-2">
                     <label for="orderBySelect">Order By:</label>
