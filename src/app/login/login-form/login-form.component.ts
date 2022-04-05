@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpStatusCode } from '@angular/common/http';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs';
+import { AuthResult } from 'src/app/models/auth-result-model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -9,6 +13,9 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginFormComponent implements OnInit {
 
+  @Output()
+  userLoggedIn = new EventEmitter<AuthResult>();
+  userNotFound: boolean = false;
 
   userLoginForm = this.formBuilder.group({
     name: ['', [Validators.minLength(3), Validators.required]],
@@ -25,7 +32,15 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.loginUser(this.userLoginForm.value.name, this.userLoginForm.value.password);
+    this.userNotFound = false;
+    this.userService.loginUser(this.userLoginForm.value.name, this.userLoginForm.value.password)
+      .subscribe(result => {
+        this.userLoggedIn.emit(result.body!);
+      }, error => {
+        if (error.status === HttpStatusCode.NotFound) {
+          this.userNotFound = true;
+        }
+      });
   }
 
 }

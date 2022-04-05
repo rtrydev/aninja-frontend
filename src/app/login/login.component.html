@@ -7,7 +7,7 @@
                    mat-stretch-tabs>
       <mat-tab label="Login"
                labelClass="text-white">
-        <app-login-form></app-login-form>
+        <app-login-form (userLoggedIn)="closeLogin()"></app-login-form>
       </mat-tab>
       <mat-tab label="Register"
                labelClass="text-white">
