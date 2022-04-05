@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject, tap } from 'rxjs';
+import { BehaviorSubject, Subject, tap } from 'rxjs';
 import { AuthResult } from '../models/auth-result-model';
 import { RegisterResult } from '../models/register-result-model';
 import { User } from '../models/user-model';
@@ -10,7 +10,7 @@ import { User } from '../models/user-model';
 })
 export class UserService {
 
-  currentUser = new Subject<User | null>();
+  currentUser = new BehaviorSubject<User|null>(null);
 
   getUser(id: number) {
     return this.httpClient.get<User>('http://rtrydev.com/api/user/' + id);

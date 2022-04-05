@@ -20,7 +20,7 @@ export class RatingComponent implements OnInit, OnDestroy {
   maxRatingLength = 2000;
 
   ratingForm = this.formBuilder.group({
-    note: new FormControl(10, Validators.required),
+    mark: new FormControl(10, Validators.required),
     comment: new FormControl('', Validators.maxLength(this.maxRatingLength))
   });
 
