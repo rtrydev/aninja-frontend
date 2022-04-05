@@ -48,6 +48,7 @@ export class UserService {
 
   logoutUser() {
     this.currentUser.next(null);
+    localStorage.removeItem('userData');
   }
 
   constructor(private httpClient: HttpClient) { }
