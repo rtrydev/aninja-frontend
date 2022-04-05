@@ -1,10 +1,19 @@
 <div style="position: relative;">
-    <div style="overflow-x: hidden; background-image: url(/assets/bg.png);"
+    <div style="overflow-x: hidden; background-image: url(/assets/bg.png); background-repeat: no-repeat; background-size: cover; background-position-x: center; background-position-y: 30%;"
          class="d-flex flex-wrap justify-content-center dark-background text-center text-white">
-        <div style="background-color: #222222bb; height: fit-content; width: fit-content; position: relative; padding-top: 5%; padding-bottom: 5%;">
-             <h3 style="font-family: 'Rubik';" class="my-3">ANINJA - YOUR ANIME DATABASE</h3>
-             <p class="ml-auto mr-auto w-50" style="font-size: large;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-             <button class="btn btn-success mt-3" style="font-size: large;" routerLink="/anime">Start browsing</button>
+        <div
+             style="background-color: #222222bb; height: fit-content; width: fit-content; position: relative; padding-top: 5%; padding-bottom: 5%;">
+            <h3 style="font-family: 'Rubik';"
+                class="my-3">ANINJA - YOUR ANIME DATABASE</h3>
+            <p class="ml-auto mr-auto w-50"
+               style="font-size: large;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+                in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button class="btn btn-success mt-3"
+                    style="font-size: large;"
+                    routerLink="/anime">Start browsing</button>
         </div>
 
     </div>
@@ -12,8 +21,7 @@
         <p class="text-white"
            style="font-family: 'Rubik'; font-size: larger;">TOP AIRING ANIME</p>
     </div>
-    <div [ngClass]="innerWidth < 1750 ? 'horizontal-scroll' : 'd-flex justify-content-center'"
-         class="dark-background"
+    <div class="dark-background horizontal-scroll"
          style="overflow-x: auto;">
         <app-anime-top-list [type]="'Airing'"></app-anime-top-list>
     </div>
@@ -22,8 +30,7 @@
         <p class="text-white"
            style="font-family: 'Rubik'; font-size: larger;">TOP 10 ANIME OF ALL TIME</p>
     </div>
-    <div [ngClass]="innerWidth < 1750 ? 'horizontal-scroll' : 'd-flex justify-content-center'"
-         class="dark-background"
+    <div class="dark-background horizontal-scroll"
          style="overflow-x: auto">
         <app-anime-top-list [type]="'All'"></app-anime-top-list>
     </div>
