@@ -4,7 +4,8 @@ import { AnimeService } from '../services/anime.service';
 import { AnimeDetails } from '../models/anime-details-model';
 import { Demographic } from '../models/anime-details-model';
 import { Status } from '../models/anime-details-model';
-import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { Rating } from '../models/rating-model';
 @Component({
   selector: 'app-anime-details',
   templateUrl: './anime-details.component.html',
@@ -19,9 +20,13 @@ export class AnimeDetailsComponent implements OnInit {
   Demographic: any = Demographic;
   Status: any = Status;
 
+  addedRating: Subject<Rating | null> = new Subject<Rating|null>();
+
   constructor(private route: ActivatedRoute, private animeService: AnimeService) { }
 
   ngOnInit(): void {
+
+    this.addedRating.next(null);
 
     this.animeService.getAnime(this.route.snapshot.params['id'])
       .subscribe(result => {
@@ -39,6 +44,10 @@ export class AnimeDetailsComponent implements OnInit {
 
         }
       );
+  }
+
+  addRatingToList(rating: Rating) {
+    this.addedRating.next(rating);
   }
 
 }

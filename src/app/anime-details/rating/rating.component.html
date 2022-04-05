@@ -39,6 +39,11 @@
       <div class="text-white">{{ratingForm.value.comment.length}}/{{maxRatingLength}}</div>
     </div>
 
+    <div class="alert w-100 text-center" *ngIf="ratingAdded || ratingFailed">
+      <div class="text-success" *ngIf="ratingAdded">Successfuly added rating.</div>
+      <div class="text-danger" *ngIf="ratingFailed">Failed to add rating.</div>
+    </div>
+
     <div matTooltip="Log in to post review"
          [matTooltipDisabled]="ratingEnabled">
       <button class="btn btn-success shadow m-3"

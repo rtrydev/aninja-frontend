@@ -1,8 +1,9 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { AnimeDetails } from 'src/app/models/anime-details-model';
 import { RatingAdd } from 'src/app/models/rating-add-model';
+import { Rating } from 'src/app/models/rating-model';
 import { RatingService } from 'src/app/services/rating.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -16,8 +17,14 @@ export class RatingComponent implements OnInit, OnDestroy {
   @Input()
   anime: AnimeDetails | null = null;
 
+  @Output()
+  ratingAdd = new EventEmitter<Rating>();
+
   ratingEnabled: boolean = false;
   maxRatingLength = 2000;
+
+  ratingAdded: boolean = false;
+  ratingFailed: boolean = false;
 
   ratingForm = this.formBuilder.group({
     mark: new FormControl(10, Validators.required),
@@ -53,10 +60,26 @@ export class RatingComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
+    this.ratingAdded = false;
+    this.ratingFailed = false;
     let rating = new RatingAdd(this.ratingForm.value.mark, this.ratingForm.value.comment);
     if (this.anime) {
       this.ratingService.publishRatingForAnime(this.anime?.id, rating)
-        .subscribe();
+        .subscribe(result => {
+          this.ratingAdd.emit(result);
+          if (this.anime !== null) {
+            this.ratingService.getAvgRatingForAnime(this.anime?.id)
+              .subscribe(result => {
+                this.ratingAvg = result;
+              })
+          }
+          this.ratingFormControls['mark'].setValue(10);
+          this.ratingFormControls['comment'].setValue('');
+          this.ratingAdded = true;
+        }, error => {
+          this.ratingFailed = true;
+
+        });
 
     }
   }
