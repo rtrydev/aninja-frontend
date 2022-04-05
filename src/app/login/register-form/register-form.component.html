@@ -108,6 +108,12 @@
     </div>
   </div>
 
+  <div class="alert" *ngIf="registrationSuccessful || registrationFailed">
+    <div class="text-success" *ngIf="registrationSuccessful">You have successfully created a new account, now log in.</div>
+    <div class="text-danger" *ngIf="registrationFailed">User with that data already exists.</div>
+  </div>
+
+
   <button class="btn btn-success shadow m-3 mt-4"
           type="submit"
           [disabled]="!userRegisterForm.valid">

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, tap } from 'rxjs';
 import { AuthResult } from '../models/auth-result-model';
+import { RegisterResult } from '../models/register-result-model';
 import { User } from '../models/user-model';
 
 @Injectable({
@@ -23,6 +24,10 @@ export class UserService {
           this.currentUser.next(user);
         }
       }));
+  }
+
+  registerUser(name: string, email: string, password: string) {
+    return this.httpClient.post<RegisterResult>('http://rtrydev.com/api/user/register', {name: name, password: password, email: email}, {observe: 'response'});
   }
 
   logoutUser() {
