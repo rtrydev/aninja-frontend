@@ -19,7 +19,12 @@ export class CommentItemComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.comment !== undefined){
-      this.submitter = this.userService.getUser(this.comment?.submitterId);
+      this.userService.getUser(this.comment?.submitterId)
+        .subscribe(
+          result => {
+            this.submitter = result;
+          }
+        )
     }
   }
 

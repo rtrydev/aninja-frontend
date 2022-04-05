@@ -1,82 +1,67 @@
-<form
-          class="text-center p-2"
-          [formGroup]="userLoginForm"
-          (ngSubmit)="onSubmit()"
-        >
-          <div class="form-group mt-2">
-            <input
-              id="name"
-              name="name"
-              class="form-control border-light text-white mx-md-0 mx-sm-2 shadow"
-              placeholder="Name"
-              type="text"
-              style="background-color: #444"
-              formControlName="name"
-            />
+<form class="text-center p-2"
+      [formGroup]="userLoginForm"
+      (ngSubmit)="onSubmit()">
+  <div class="form-group mt-2">
+    <input id="name"
+           name="name"
+           class="form-control border-light text-white mx-md-0 mx-sm-2 shadow"
+           placeholder="Name"
+           type="text"
+           style="background-color: #444"
+           formControlName="name" />
 
-            <div
-              style="background-color: #404040"
-              *ngIf="
+    <div style="background-color: #404040"
+         *ngIf="
                 !userLoginFormControl['name'].valid &&
                 (userLoginFormControl['name'].dirty ||
                   userLoginFormControl['name'].touched)
               "
-              class="alert"
-            >
-              <div
-                class="text-danger"
-                *ngIf="userLoginFormControl['name'].errors?.['minlength']"
-              >
-                Name should contain at least 3 characters.
-              </div>
-              <div
-                class="text-danger"
-                *ngIf="userLoginFormControl['email'].errors?.['required']"
-              >
-                Name is required.
-              </div>
-            </div>
-          </div>
+         class="alert">
+      <div class="text-danger"
+           *ngIf="userLoginFormControl['name'].errors?.['minlength']">
+        Name should contain at least 3 characters.
+      </div>
+      <div class="text-danger"
+           *ngIf="userLoginFormControl['name'].errors?.['required']">
+        Name is required.
+      </div>
+    </div>
+  </div>
 
-          <div class="form-group">
-            <input
-              id="password"
-              name="password"
-              class="form-control border-light text-white mx-md-0 mx-sm-2 mt-3 shadow"
-              placeholder="Password"
-              type="password"
-              style="background-color: #444"
-              formControlName="password"
-            />
-            <div
-              class="alert"
-              style="background-color: #404040"
-              *ngIf="
+  <div class="form-group">
+    <input id="password"
+           name="password"
+           class="form-control border-light text-white mx-md-0 mx-sm-2 mt-3 shadow"
+           placeholder="Password"
+           type="password"
+           style="background-color: #444"
+           formControlName="password" />
+    <div class="alert"
+         style="background-color: #404040"
+         *ngIf="
                 !userLoginFormControl['password'].valid &&
                 (userLoginFormControl['password'].dirty ||
                   userLoginFormControl['password'].touched)
-              "
-            >
-              <div
-                class="text-danger"
-                *ngIf="userLoginFormControl['password'].errors?.['minlength']"
-              >
-                Password should contain at least 8 characters.
-              </div>
-              <div
-                class="text-danger"
-                *ngIf="userLoginFormControl['password'].errors?.['required']"
-              >
-                Password is required.
-              </div>
-            </div>
-          </div>
+              ">
+      <div class="text-danger"
+           *ngIf="userLoginFormControl['password'].errors?.['minlength']">
+        Password should contain at least 6 characters.
+      </div>
+      <div class="text-danger"
+           *ngIf="userLoginFormControl['password'].errors?.['required']">
+        Password is required.
+      </div>
+    </div>
+  </div>
+  <div class="alert" *ngIf="userNotFound">
+    <div class="text-danger">
+      Invalid username or password.
+    </div>
+  </div>
 
-          <button
-            class="btn btn-success shadow m-3 mt-4"
-            type="submit"
-            [disabled]="!userLoginForm.valid"
-          >
-            Submit
-          </button>
-        </form>
+  <button class="btn btn-success shadow m-3 mt-4"
+          type="submit"
+          [disabled]="!userLoginForm.valid">
+    Submit
+  </button>
+</form>

@@ -12,6 +12,7 @@ export class AnimesComponent implements OnInit {
 
   public innerWidth: any;
   animes: Anime[] = [];
+  allAnimeCount: number = 0;
   
 
   @HostListener('window:resize', ['$event'])
@@ -23,7 +24,13 @@ export class AnimesComponent implements OnInit {
 
   ngOnInit() {
       this.innerWidth = window.innerWidth;
-      this.animes = this.animeService.getAnimes();
+      this.animeService.getAnimes().subscribe(
+        result => {
+          this.animes = result.animes;
+          this.allAnimeCount = result.allCount;
+        }
+      );
+
   }
 
 }

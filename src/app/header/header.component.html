@@ -1,88 +1,104 @@
-<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #222">
-  <a class="navbar-brand" style="font-family: 'Courgette', cursive" href="#"
-    ><span
-      ><img
-        width="48"
-        height="48"
-        class="mr-3"
-        src="/assets/aninja-logo.png" /></span
-    >ANINJA</a
-  >
-  <button class="navbar-toggler" type="button" (click)="collapsed = !collapsed" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" [class.collapse]="collapsed" (window:resize)="collapsed = true">
-    <form class="navbar-nav mr-auto ml-auto flex-row" 
-    [formGroup]="animeSearchForm"
-    (ngSubmit)="onSubmit()" 
-    [ngClass]="innerWidth < 575 ? 'w-75' : 'w-50'">
-      <input
-        class="form-control mr-sm-2 w-100"
-        style="background-color: #444; border: #555; color: #ddd"
-        type="text"
-        placeholder="Search"
-        formControlName="name"
-      />
-      <button class="btn" type="submit">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="#ddd"
-          width="20"
-          height="20"
-          class="bi bi-search"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-          />
-        </svg>
+<nav class="navbar navbar-expand-sm navbar-dark"
+     style="background-color: #222">
+      <a class="navbar-brand"
+         style="font-family: 'Courgette', cursive"
+         href=""><span><img width="48"
+                       height="48"
+                       class="mr-3"
+                       src="/assets/aninja-logo.png" /></span>ANINJA</a>
+      <button class="navbar-toggler"
+              type="button"
+              (click)="collapsed = !collapsed"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
       </button>
-    </form>
-    <ul class="navbar-nav ml-0">
-      <li class="nav-item text-center">
-        <a class="nav-link" style="color: #ddd; cursor: pointer;" (click)="showLogin()"
-          ><span class="mr-2"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              class="bi bi-box-arrow-in-right"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
-              />
-              <path
-                fill-rule="evenodd"
-                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
-              /></svg></span
-          >Login</a
-        >
-      </li>
-      <li class="nav-item text-center">
-        <a class="nav-link" style="color: #ddd; cursor: pointer;" (click)="showRegister()"
-          ><span class="mr-2"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              class="bi bi-person-plus-fill"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
-              />
-              <path
-                fill-rule="evenodd"
-                d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"
-              /></svg></span
-          >Sign In</a
-        >
-      </li>
-    </ul>
-  </div>
+
+      <div class="collapse navbar-collapse"
+           id="navbarSupportedContent"
+           [class.collapse]="collapsed"
+           (window:resize)="collapsed = true">
+            <form class="navbar-nav mr-auto ml-auto flex-row"
+                  [formGroup]="animeSearchForm"
+                  (ngSubmit)="onSubmit()"
+                  [ngClass]="innerWidth < 575 ? 'w-75' : 'w-50'">
+                  <input class="form-control mr-sm-2 w-100"
+                         style="background-color: #444; border: #555; color: #ddd"
+                         type="text"
+                         placeholder="Search"
+                         formControlName="name" />
+                  <button class="btn"
+                          type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                             fill="#ddd"
+                             width="20"
+                             height="20"
+                             class="bi bi-search"
+                             viewBox="0 0 16 16">
+                              <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                  </button>
+            </form>
+            <ul class="navbar-nav ml-0 text-white"
+                *ngIf="isAuthenticated">
+                  <li class="text-center py-3">
+                        <a style="cursor:pointer" class="dropdown-toggle text-white" type="button" [matMenuTriggerFor]="menu">
+                              <span class="mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         width="32"
+                                         height="32"
+                                         fill="white"
+                                         class="bi bi-person-circle"
+                                         viewBox="0 0 16 16">
+                                          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                          <path fill-rule="evenodd"
+                                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                    </svg>
+                              </span>{{userName}}
+                        </a>
+                        
+                        <mat-menu #menu="matMenu">
+                              <a mat-menu-item (click)="sendLogout()">Logout</a>
+                        </mat-menu>
+                  </li>
+
+            </ul>
+            <ul class="navbar-nav ml-0"
+                *ngIf="!isAuthenticated">
+                  <li class="nav-item text-center">
+                        <a class="nav-link"
+                           style="color: #ddd; cursor: pointer;"
+                           (click)="showLogin()"><span class="mr-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                         width="20"
+                                         height="20"
+                                         fill="currentColor"
+                                         class="bi bi-box-arrow-in-right"
+                                         viewBox="0 0 16 16">
+                                          <path fill-rule="evenodd"
+                                                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+                                          <path fill-rule="evenodd"
+                                                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                                    </svg></span>Login</a>
+                  </li>
+                  <li class="nav-item text-center">
+                        <a class="nav-link"
+                           style="color: #ddd; cursor: pointer;"
+                           (click)="showRegister()"><span class="mr-2"><svg xmlns="http://www.w3.org/2000/svg"
+                                         width="20"
+                                         height="20"
+                                         fill="currentColor"
+                                         class="bi bi-person-plus-fill"
+                                         viewBox="0 0 16 16">
+                                          <path
+                                                d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                          <path fill-rule="evenodd"
+                                                d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                                    </svg></span>Sign In</a>
+                  </li>
+            </ul>
+      </div>
 </nav>

@@ -8,7 +8,7 @@
             <p class="m-2">{{submitter?.name}}</p>
         </div>
         <div class="col-7 py-3">
-            <p>Note: {{comment?.note}}</p>
+            <p *ngIf="comment !== null">Note: {{comment?.mark}}</p>
             <p [ngStyle]="showMore ? {'white-space': 'normal'} : {'white-space': 'nowrap'}" class="text-white" style="overflow: hidden; text-overflow: ellipsis; background-color: #404040;">{{comment?.comment}}</p>
             <a (click)="toggleShowMore()" style="cursor: pointer; color: #aaaaff;" class="text-right">Show {{showMore ? 'Less' : 'More'}}</a>
         </div>

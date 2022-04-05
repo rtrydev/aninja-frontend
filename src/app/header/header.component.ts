@@ -1,13 +1,19 @@
-import { Component, OnInit, HostListener, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, HostListener, EventEmitter, Output, Input, OnDestroy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.sass']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
+  private userSubscription: Subscription | null = null;
+  public isAuthenticated = false;
+  public userName: string = '';
+
   collapsed = true;
   @Output()
   loginVisible = new EventEmitter<{visible: boolean, option: number}>();
@@ -23,10 +29,18 @@ export class HeaderComponent implements OnInit {
     this.innerWidth = window.innerWidth;
   }
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
+    this.userSubscription = this.userService.currentUser.subscribe(user => {
+      this.isAuthenticated = !!user;
+      this.userName = user ? user.name : '';
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription?.unsubscribe();
   }
 
   showLogin(){ 
@@ -39,6 +53,10 @@ export class HeaderComponent implements OnInit {
 
   onSubmit(){
     this.router.navigate(['/anime'], {queryParams: {'name': this.animeSearchForm.value.name}});
+  }
+
+  sendLogout() {
+    this.userService.logoutUser();
   }
 
 }

@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
                 <label for="statusSelect">Status:</label>
-                <mat-select formControlName="status" id="statusSelect" class="form-control shadow" style="background-color: #404040;">
+                <mat-select formControlName="statuses" id="statusSelect" class="form-control shadow" style="background-color: #404040;">
                     <mat-option value="NotYetAired">Not Yet Aired</mat-option>
                     <mat-option value="CurrentlyAiring">Currently Airing</mat-option>
                     <mat-option value="FinishedAiring">Finished Airing</mat-option>
@@ -50,6 +50,6 @@
         <div class="p-1 d-flex flex-wrap justify-content-center ml-auto mr-auto">
             <app-anime-list-item class="" *ngFor="let anime of animes" [anime]="anime"></app-anime-list-item>
         </div>
-        <mat-paginator style="margin-right: 10%" [pageSize]="resultsPerPage" [pageIndex]="page" [pageSizeOptions]="[10, 20, 50]" [length]="animes.length" (page)="onPageChange($event)"></mat-paginator>
+        <mat-paginator style="margin-right: 10%" [pageSize]="resultsPerPage" [pageIndex]="page" [pageSizeOptions]="[10, 20, 50]" [length]="allAnimeCount" (page)="onPageChange($event)"></mat-paginator>
     </div>
 </div>
