@@ -55,4 +55,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate(['/anime'], {queryParams: {'name': this.animeSearchForm.value.name}});
   }
 
+  sendLogout() {
+    this.userService.logoutUser();
+  }
+
 }

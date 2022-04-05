@@ -9,7 +9,7 @@ import { User } from '../models/user-model';
 })
 export class UserService {
 
-  currentUser = new Subject<User>();
+  currentUser = new Subject<User | null>();
 
   getUser(id: number) {
     return this.httpClient.get<User>('http://rtrydev.com/api/user/' + id);
@@ -23,6 +23,10 @@ export class UserService {
           this.currentUser.next(user);
         }
       }));
+  }
+
+  logoutUser() {
+    this.currentUser.next(null);
   }
 
   constructor(private httpClient: HttpClient) { }
