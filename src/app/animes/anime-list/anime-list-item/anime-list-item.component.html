@@ -1,9 +1,20 @@
-<a class="card-link" routerLink="/anime/{{anime.id}}">
-    <div class="p-3 m-2 text-center shadow" [ngClass]="innerWidth < 575 ? 'mobile-card' : 'desktop-card'" style="background-color: #333;">
-        <div class="text-center w-100" style="height: 80%;">
-            <img width="100%" height="100%" src="{{anime.imgUrl}}">
+<a class="card-link"
+   routerLink="/anime/{{anime.id}}">
+    <div class="p-3 m-2 text-center shadow"
+         [ngClass]="innerWidth < 575 ? 'mobile-card' : 'desktop-card'"
+         style="background-color: #333;">
+        <div class="text-center w-100"
+             style="height: 80%;">
+            <img width="100%"
+                 height="100%"
+                 src="{{anime.imgUrl}}">
         </div>
-        <p class="text-white px-1" style="margin-top: auto; margin-bottom: auto;" [ngClass]="innerWidth < 575 ? 'mobile-title' : 'desktop-title'">{{anime.translatedTitle}}</p>
+        <div class="mx-auto my-auto"
+             style="width: 100%; height: 100%; text-align: center;">
+            <p class="text-white px-1 mt-3"
+               [ngClass]="innerWidth < 575 ? 'mobile-title' : 'desktop-title'">{{anime.translatedTitle}}</p>
+
+        </div>
 
     </div>
 </a>
