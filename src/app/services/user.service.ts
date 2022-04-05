@@ -22,8 +22,24 @@ export class UserService {
         if (responseData.body !== null && responseData.headers.get('AuthToken') !== null) {
           const user = new User(responseData.body.role, responseData.body.name, responseData.body.email, responseData.headers.get('AuthToken')!)
           this.currentUser.next(user);
+          localStorage.setItem('userData', JSON.stringify(user));
         }
       }));
+  }
+
+  autoLogin() {
+    const userDataString = localStorage.getItem('userData');
+    if(!userDataString) return;
+    const userData : {
+      email: string,
+      name: string,
+      role: string,
+      token: string
+    } = JSON.parse(userDataString);
+    if(!userData) return;
+    const loadedUser = new User(userData.role, userData.name, userData.email, userData.token);
+    this.currentUser.next(loadedUser);
+
   }
 
   registerUser(name: string, email: string, password: string) {
