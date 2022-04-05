@@ -2,18 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Params } from '@angular/router';
 import { AnimeDetails, Demographic, Status } from '../models/anime-details-model';
-import { Anime } from '../models/anime-model';
-import { map, pluck } from 'rxjs/operators';
 import { AnimeGetAllResult } from '../models/anime-getall-result';
+import { AnimeRating } from '../models/anime-rating-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnimeService {
 
-  getTopAnimes(){
+  getTopAnimes(filter?: string){
+    if(!filter || filter === ""){
+      return this.httpClient
+      .get<AnimeRating[]>('http://rtrydev.com/api/anime/top');
+    }
     return this.httpClient
-      .get<Anime[]>('http://rtrydev.com/api/anime/top');
+      .get<AnimeRating[]>('http://rtrydev.com/api/anime/top', {params: {'Filter': filter}});
+    
   }
 
   getAnimes(params: Params | null = null) {
