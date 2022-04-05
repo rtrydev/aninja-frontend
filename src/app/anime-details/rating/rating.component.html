@@ -1,36 +1,53 @@
 <div class="col-lg-11 col-md-8 mt-sm-2 mt-md-4 ml-auto mr-auto">
   <div class="mx-2">
-    <div class="d-flex flex-wrap justify-content-center" >
-      <p class="text-white mx-2 mt-1" style="font-size: x-large;">Average Rating: </p>
-      <div class="badge badge-secondary p-2 mb-2" style="font-size: xx-large;">{{ratingAvg.toFixed(2)}}</div>
+    <div class="d-flex flex-wrap justify-content-center">
+      <p class="text-white mx-2 mt-1"
+         style="font-size: x-large;">Average Rating: </p>
+      <div class="badge badge-secondary p-2 mb-2"
+           style="font-size: xx-large;">{{ratingAvg.toFixed(2)}}</div>
     </div>
   </div>
 
-  <p class="text-white my-3 text-center" style="font-size: large;">Your rating:</p>
-  <form class="d-flex flex-wrap justify-content-center w-100">
-    <select class="form-control mx-1 shadow" style="background-color: #404040; color: #ddd;" name="rating" [disabled]=!ratingEnabled>
-      <option value="10">10 - Masterpiece</option>
-      <option value="9">9 - Almost perfect</option>
-      <option value="8">8 - Great</option>
-      <option value="7">7 - Very good</option>
-      <option value="6">6 - Good</option>
-      <option value="5">5 - Average</option>
-      <option value="4">4 - Below Average</option>
-      <option value="3">3 - Cliched</option>
-      <option value="2">2 - Bad</option>
-      <option value="1">1 - Garbage</option>
+  <p class="text-white my-3 text-center"
+     style="font-size: large;">Your rating:</p>
+  <form class="d-flex flex-wrap justify-content-center w-100"
+        [formGroup]="ratingForm"
+        (ngSubmit)="onSubmit()">
+    <select class="form-control mx-1 shadow"
+            style="background-color: #404040; color: #ddd;"
+            name="rating"
+            formControlName="note">
+      <option value=10>10 - Masterpiece</option>
+      <option value=9>9 - Almost perfect</option>
+      <option value=8>8 - Great</option>
+      <option value=7>7 - Very good</option>
+      <option value=6>6 - Good</option>
+      <option value=5>5 - Average</option>
+      <option value=4>4 - Below Average</option>
+      <option value=3>3 - Cliched</option>
+      <option value=2>2 - Bad</option>
+      <option value=1>1 - Garbage</option>
     </select>
-    <textarea
-      rows="5"
-      class="form-control shadow mx-1 mt-3 w-100"
-      style="background-color: #404040; color: #ddd; height: 100%;"
-      type="text"
-      placeholder="Write your review"
-      [disabled]=!ratingEnabled
-    ></textarea>
-    <button class="btn btn-success shadow m-3" type="submit" [disabled]=!ratingEnabled>
-      Submit
-    </button>
+    <div class="form-group text-right w-100">
+      <textarea rows="5"
+                class="form-control shadow mx-1 mt-3 w-100"
+                style="background-color: #404040; color: #ddd; height: 100%;"
+                type="text"
+                placeholder="Write your review"
+                formControlName="comment"
+                maxlength=maxRatingLength></textarea>
+      <div class="text-white">{{ratingForm.value.comment.length}}/{{maxRatingLength}}</div>
+    </div>
+
+    <div matTooltip="Log in to post review"
+         [matTooltipDisabled]="ratingEnabled">
+      <button class="btn btn-success shadow m-3"
+              type="submit"
+              [disabled]="!ratingEnabled || !ratingForm.valid">
+        Submit
+      </button>
+    </div>
+
   </form>
 
 </div>
