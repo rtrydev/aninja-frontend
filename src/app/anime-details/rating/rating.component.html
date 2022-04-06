@@ -13,7 +13,7 @@
   <form class="d-flex flex-wrap justify-content-center w-100"
         [formGroup]="ratingForm"
         (ngSubmit)="onSubmit()">
-    <select class="form-control mx-1 shadow"
+    <select class="form-control shadow w-100 mx-1"
             style="background-color: #404040; color: #ddd;"
             name="rating"
             formControlName="mark">
@@ -28,14 +28,15 @@
       <option value=2>2 - Bad</option>
       <option value=1>1 - Garbage</option>
     </select>
-    <div class="form-group text-right w-100">
-      <textarea rows="5"
+    <textarea rows="5"
                 class="form-control shadow mx-1 mt-3 w-100"
                 style="background-color: #404040; color: #ddd; height: 100%;"
                 type="text"
                 placeholder="Write your review"
                 formControlName="comment"
                 maxlength=maxRatingLength></textarea>
+    <div class="mx-2 mt-1 text-right w-100">
+      
       <div class="text-white">{{ratingForm.value.comment.length}}/{{maxRatingLength}}</div>
     </div>
 
@@ -46,7 +47,7 @@
 
     <div matTooltip="Log in to post review"
          [matTooltipDisabled]="ratingEnabled">
-      <button class="btn btn-success shadow m-3"
+      <button class="btn btn-success shadow mx-3 my-2"
               type="submit"
               [disabled]="!ratingEnabled || !ratingForm.valid">
         Submit
