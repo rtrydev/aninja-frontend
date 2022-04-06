@@ -25,6 +25,7 @@ import { RegisterFormComponent } from './login/register-form/register-form.compo
 import { AnimeSearchComponent } from './anime-search/anime-search.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './auth/auth-interceptor';
+import { TagsComponent } from './anime-details/tags/tags.component';
 
 const appRoutes: Routes = [
   { path: '', component: AnimesComponent},
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
     LoginComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    AnimeSearchComponent
+    AnimeSearchComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,
