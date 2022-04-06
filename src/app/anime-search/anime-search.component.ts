@@ -45,6 +45,12 @@ export class AnimeSearchComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.animeFiltersForm.valueChanges.subscribe(
+      values => {
+        this.onSubmit();
+      }
+    )
+
     let params = this.route.snapshot.queryParams;
     this.page = params['page'] - 1;
     this.resultsPerPage = params['resultsPerPage'];
