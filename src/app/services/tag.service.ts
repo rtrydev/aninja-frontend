@@ -11,5 +11,9 @@ export class TagService {
     return this.httpClient.get<Tag[]>('http://rtrydev.com/api/tag');
   }
 
+  getTagsForAnime(id: number | undefined){
+    return this.httpClient.get<Tag[]>('http://rtrydev.com/api/anime/' + id + '/tag');
+  }
+
   constructor(private httpClient: HttpClient) { }
 }
