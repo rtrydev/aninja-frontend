@@ -1,3 +1,4 @@
 <div class="d-flex flex-wrap justify-content-center">
+    <p *ngIf="tags.length === 0" class="p-4">No tags.</p>
     <div class="badge badge-secondary p-2 m-2" style="font-size: normal;" *ngFor="let tag of tags">{{tag.name}}</div>
 </div>
