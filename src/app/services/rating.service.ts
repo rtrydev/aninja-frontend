@@ -4,6 +4,7 @@ import { AnimeRating } from '../models/anime-rating-model';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { RatingAdd } from '../models/rating-add-model';
+import { apiUrl } from '../app.module';
 
 
 
@@ -14,17 +15,17 @@ export class RatingService {
 
   public getRatingsForAnime(animeId : number){
     return this.httpClient
-      .get<Rating[]>('http://rtrydev.com/api/anime/' + animeId + '/rating');
+      .get<Rating[]>(apiUrl + '/anime/' + animeId + '/rating');
   }
 
   public getAvgRatingForAnime(animeId : number){
     return this.httpClient
-      .get<number>('http://rtrydev.com/api/anime/' + animeId + '/rating/avg');
+      .get<number>(apiUrl + '/anime/' + animeId + '/rating/avg');
   }
 
   public publishRatingForAnime(animeId: number, rating: RatingAdd){
     return this.httpClient
-      .post<Rating>('http://rtrydev.com/api/anime/' + animeId + '/rating', rating);
+      .post<Rating>(apiUrl + '/anime/' + animeId + '/rating', rating);
   }
   
 

@@ -67,3 +67,4 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export const apiUrl = 'http://192.168.49.2/api';

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Params } from '@angular/router';
+import { apiUrl } from '../app.module';
 import { AnimeDetails, Demographic, Status } from '../models/anime-details-model';
 import { AnimeGetAllResult } from '../models/anime-getall-result';
 import { AnimeRating } from '../models/anime-rating-model';
@@ -13,21 +14,21 @@ export class AnimeService {
   getTopAnimes(filter?: string){
     if(!filter || filter === ""){
       return this.httpClient
-      .get<AnimeRating[]>('http://rtrydev.com/api/anime/top');
+      .get<AnimeRating[]>(apiUrl + '/anime/top');
     }
     return this.httpClient
-      .get<AnimeRating[]>('http://rtrydev.com/api/anime/top', {params: {'Filter': filter}});
+      .get<AnimeRating[]>(apiUrl + '/anime/top', {params: {'Filter': filter}});
     
   }
 
   getAnimes(params: Params | null = null) {
     return this.httpClient
-      .get<AnimeGetAllResult>('http://rtrydev.com/api/anime', {params: {...params}});
+      .get<AnimeGetAllResult>(apiUrl + '/anime', {params: {...params}});
   }
 
   getAnime(id: number) {
     return this.httpClient
-      .get<AnimeDetails>('http://rtrydev.com/api/anime/' + id);
+      .get<AnimeDetails>(apiUrl + '/anime/' + id);
   }
 
   constructor(private httpClient: HttpClient) { }
