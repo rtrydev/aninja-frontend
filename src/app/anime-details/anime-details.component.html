@@ -2,21 +2,24 @@
   <div class="col-md-4 col-lg-4 col-xl-3 text-center p-3 mt-3 ">
     <img src="{{ anime?.imgUrl }}"
          width="75%" />
-    <div class="text-white"
+    <div class="text-white mt-2"
          style="font-size: large;">
       <p>{{anime?.translatedTitle}}</p>
-      <p>{{anime?.originalTitle}}</p>
+      <p>Japanese: {{anime?.originalTitle}}</p>
     </div>
   </div>
-  <div class="col-md-7 col-lg-6 col-xl-4 mx-3">
-    <app-rating *ngIf="anime !== null" [anime]="anime" (ratingAdd)="addRatingToList($event)"></app-rating>
+  <div class="col-md-7 col-lg-6 col-xl-4 mx-3 mt-auto mb-auto">
+    <app-rating *ngIf="anime !== null"
+                [anime]="anime"
+                (ratingAdd)="addRatingToList($event)"></app-rating>
   </div>
 </div>
+
 <div class="d-flex flex-wrap justify-content-center pb-3 dark-background">
   <div class="col-sm-12 col-md-4 col-lg-4 col-xl-3">
     <div class="text-white pb-2 px-3 pt-3 mt-3 mx-3 card shadow border-light"
-         style="font-size: large; background-color: #404040;">
-      <p class="text-center">Informations</p>
+         style="font-size: normal; background-color: #404040;">
+      <p class="text-center">Informations:</p>
       <p>Start Date: {{startDateKnown ? (anime?.startDate | date: 'dd MMM yyyy') : '?'}}</p>
       <p>End Date: {{endDateKnown ? (anime?.endDate | date: 'dd MMM yyyy') : '?'}}</p>
       <p>Episode Count: {{anime?.episodeCount}}</p>
@@ -27,18 +30,42 @@
   <div class="col-md-7 col-lg-6 col-xl-4 text-white mt-3 mx-3">
     <div class="col-lg-10 col-md-8 ml-auto mr-auto card shadow border-light pb-2 px-3 pt-3"
          style="background-color: #404040; width: 100%;">
-      <p class="text-center">Description</p>
-      <p style="white-space: pre-line">{{anime?.description}}</p>
+      <p class="text-center">Tags:</p>
+      <app-tags *ngIf="anime !== null"
+                [anime]="anime"></app-tags>
     </div>
   </div>
 </div>
-<div class="d-flex flex-wrap justify-content-center pb-3 dark-background">
-  <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 text-white mt-3">
-    <app-characters *ngIf="anime !== null" [animeId]="anime?.id"></app-characters>
-  </div>
-</div>
-<div class="d-flex flex-wrap justify-content-center pb-3 dark-background">
-  <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 text-white mt-3">
-    <app-comments *ngIf="anime !== null" [animeId]="anime?.id" [ratingAdded]="addedRating.asObservable()"></app-comments>
-  </div>
-</div>
+<mat-tab-group mat-align-tabs="center"
+               class="dark-background pt-2">
+  <mat-tab label="Description"
+           labelClass="text-white">
+    <div class="d-flex justify-content-center">
+      <div class="dark-background text-white col-lg-6 col-md-8 col-sm-10">
+        <div class="col-lg-10 col-md-8 ml-auto mr-auto card shadow border-light pb-2 px-3 pt-3 my-3"
+             style="background-color: #404040; width: 100%;">
+          <p style="white-space: pre-line">{{anime?.description}}</p>
+        </div>
+      </div>
+    </div>
+
+  </mat-tab>
+  <mat-tab label="Characters"
+           labelClass="text-white">
+    <div class="d-flex flex-wrap justify-content-center pb-3 dark-background">
+      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 text-white mt-3">
+        <app-characters *ngIf="anime !== null"
+                        [animeId]="anime?.id"></app-characters>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Reviews">
+    <div class="d-flex flex-wrap justify-content-center pb-3 dark-background">
+      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 text-white mt-3">
+        <app-comments *ngIf="anime !== null"
+                      [animeId]="anime?.id"
+                      [ratingAdded]="addedRating.asObservable()"></app-comments>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,4 +1,4 @@
-<p style="font-size: x-large;" class="text-center">Characters:</p>
 <div class="d-flex flex-wrap justify-content-center">
+    <p *ngIf="characters.length === 0" class="p-4">No characters.</p>
     <app-character-item *ngFor="let character of characters" [character]="character"></app-character-item>
 </div>

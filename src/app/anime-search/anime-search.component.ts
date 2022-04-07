@@ -19,7 +19,7 @@ export class AnimeSearchComponent implements OnInit {
     'name': undefined,
     'orderBy': 'None',
     'demographics' : [],
-    'statuses': undefined,
+    'statuses': [],
     'tagIds': []
   });
   page: number = 0;
@@ -44,6 +44,12 @@ export class AnimeSearchComponent implements OnInit {
   allAnimeCount: number = 0;
 
   ngOnInit(): void {
+
+    this.animeFiltersForm.valueChanges.subscribe(
+      values => {
+        this.onSubmit();
+      }
+    )
 
     let params = this.route.snapshot.queryParams;
     this.page = params['page'] - 1;
